@@ -8,10 +8,10 @@ test("firstAddHouse", () => {
       houses: [],
       inputs: {
         location: "풍납동",
-        floor: 2,
-        deposit: 13000,
-        monthly: 0,
-        maintenencePay: 13
+        floor: "2",
+        deposit: "13000",
+        monthly: "0",
+        maintenencePay: "13"
       }
     },
     addHouse()
@@ -51,10 +51,10 @@ test("confirmNewIdWhenAddHouse", () => {
       }],
       inputs: {
         location: "역삼동",
-        floor: 3,
-        deposit: 30000,
-        monthly: 0,
-        maintenencePay: 7
+        floor: "3",
+        deposit: "30000",
+        monthly: "0",
+        maintenencePay: "7"
       }
     },
     addHouse()
@@ -89,10 +89,10 @@ test("removeHouse", () => {
     ],
     inputs: {
       location: "",
-      floor: 0,
-      deposit: 0,
-      monthly: 0,
-      maintenencePay: 0
+      floor: "0",
+      deposit: "0",
+      monthly: "0",
+      maintenencePay: "0"
     }
   };
   const state = reducer(initState, removeHouse(2));
@@ -125,10 +125,10 @@ test("updateHouse", () => {
     ],
     inputs: {
       location: "역삼동",
-      floor: 3,
-      deposit: 30000,
-      monthly: 0,
-      maintenencePay: 7
+      floor: "3",
+      deposit: "30000",
+      monthly: "0",
+      maintenencePay: "7"
     }
   };
   const state = reducer(initState, updateHouse(2));
@@ -160,10 +160,10 @@ test("setInputs", () => {
     houses: [],
     inputs: {
       location: "",
-    floor: 0,
-    deposit: 0,
-    monthly: 0,
-    maintenencePay: 0
+      floor: "0",
+      deposit: "0",
+      monthly: "0",
+      maintenencePay: "0"
     }
   }
   const state = reducer(initState, setInputs(newInputs));

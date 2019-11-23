@@ -6,16 +6,16 @@ export const addHouse = (state, newId) => {
       ...houses,
       {
         id: newId,
-        key: newId,
+        key: newId.toString(),
         ...inputs
       }
     ],
     inputs: {
       location: "",
-      floor: 0,
-      deposit: 0,
-      monthly: 0,
-      maintenencePay: 0
+      floor: "0",
+      deposit: "0",
+      monthly: "0",
+      maintenencePay: "0"
     }
   };
 };

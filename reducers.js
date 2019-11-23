@@ -6,7 +6,7 @@ export const initialState = {
   houses: [
     {
       id: 1,
-      key: 1,
+      key: "1",
       location: "풍납동",
       floor: 2,
       deposit: 13000,
@@ -15,7 +15,7 @@ export const initialState = {
     },
     {
       id: 2,
-      key: 2,
+      key: "2",
       location: "성내동",
       floor: 4,
       deposit: 20000,
@@ -24,7 +24,7 @@ export const initialState = {
     },
     {
       id: 3,
-      key: 3,
+      key: "3",
       location: "역삼동",
       floor: 3,
       deposit: 30000,
@@ -34,10 +34,10 @@ export const initialState = {
   ],
   inputs: {
     location: "",
-    floor: 0,
-    deposit: 0,
-    monthly: 0,
-    maintenencePay: 0
+    floor: "0",
+    deposit: "0",
+    monthly: "0",
+    maintenencePay: "0"
   }
 };
 

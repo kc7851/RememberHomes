@@ -43,3 +43,10 @@ export const updateHouse = (state, houseId) => {
     inputs: {}
   };
 };
+
+export const setInputs = (state, newInputs) => {
+  return {
+    ...state,
+    inputs: newInputs
+  };
+};

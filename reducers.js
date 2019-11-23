@@ -1,6 +1,6 @@
-import { ADD_HOUSE, REMOVE_HOUSE, UPDATE_HOUSE } from "./actionTypes";
+import { ADD_HOUSE, REMOVE_HOUSE, UPDATE_HOUSE, SET_INPUTS } from "./actionTypes";
 
-import { addHouse, removeHouse, updateHouse } from "./functions";
+import { addHouse, removeHouse, updateHouse, setInputs } from "./functions";
 
 export const initialState = {
   houses: [
@@ -48,7 +48,8 @@ export const reducer = (state = initialState, action) => {
       return { ...addHouse(state, newId + 1) };
     },
     [REMOVE_HOUSE]: houseId => removeHouse(state, houseId.houseId),
-    [UPDATE_HOUSE]: houseId => updateHouse(state, houseId.houseId)
+    [UPDATE_HOUSE]: houseId => updateHouse(state, houseId.houseId),
+    [SET_INPUTS]: inputs => setInputs(state, inputs.inputs)
   };
   const handler = handlers[action.type];
   return handler ? handler(action) : state;

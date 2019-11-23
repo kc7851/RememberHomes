@@ -1,8 +1,6 @@
-import { reducer, initialState } from "./reducers";
+import { reducer } from "./reducers";
 
-import { addHouse, removeHouse, updateHouse } from "./actions";
-
-import store from "./store";
+import { addHouse, removeHouse, updateHouse, setInputs } from "./actions";
 
 test("firstAddHouse", () => {
   const state = reducer(
@@ -147,4 +145,30 @@ test("updateHouse", () => {
       maintenencePay: 7
     }
   );
+});
+
+test("setInputs", () => {
+  const newInputs = {
+    location: "역삼동",
+      floor: 3,
+      deposit: 30000,
+      monthly: 0,
+      maintenencePay: 7
+  }
+
+  const initState = {
+    houses: [],
+    inputs: {
+      location: "",
+    floor: 0,
+    deposit: 0,
+    monthly: 0,
+    maintenencePay: 0
+    }
+  }
+  const state = reducer(initState, setInputs(newInputs));
+
+  const { inputs } = state;
+
+  expect(newInputs).toEqual(inputs);
 });

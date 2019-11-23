@@ -1,4 +1,4 @@
-import { addHouse, removeHouse, updateHouse } from "./functions";
+import { addHouse, removeHouse, updateHouse, setInputs } from "./functions";
 
 test("addHouse", () => {
   const newId = 100;
@@ -111,17 +111,41 @@ test("updateHouse", () => {
 
   const { houses } = updateHouse(state, updateId);
 
-  const updatedHouse = houses[houses.findIndex(house => house.id === updateId)]
+  const updatedHouse = houses[houses.findIndex(house => house.id === updateId)];
 
-  expect(updatedHouse).toEqual(
-    {
-      id: updateId,
-      key: updateId,
-      location: state.inputs.location,
-      floor: state.inputs.floor,
-      deposit: state.inputs.deposit,
-      monthly: state.inputs.monthly,
-      maintenencePay: state.inputs.maintenencePay
+  expect(updatedHouse).toEqual({
+    id: updateId,
+    key: updateId,
+    location: state.inputs.location,
+    floor: state.inputs.floor,
+    deposit: state.inputs.deposit,
+    monthly: state.inputs.monthly,
+    maintenencePay: state.inputs.maintenencePay
+  });
+});
+
+test("setInputs", () => {
+  const newInputs = {
+    location: "역삼동",
+    floor: 3,
+    deposit: 30000,
+    monthly: 0,
+    maintenencePay: 7
+  };
+  const initState = {
+    houses: [],
+    inputs: {
+      location: "",
+      floor: 0,
+      deposit: 0,
+      monthly: 0,
+      maintenencePay: 0
     }
-  );
+  };
+
+  const state = setInputs(initState, newInputs);
+
+  const { inputs } = state;
+
+  expect(newInputs).toEqual(inputs);
 });

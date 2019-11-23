@@ -4,8 +4,7 @@ import { addHouse, removeHouse, updateHouse } from "./actions";
 
 import store from "./store";
 
-test("addHouse", () => {
-  const newId = store.getState().counter();
+test("firstAddHouse", () => {
   const state = reducer(
     {
       houses: [],
@@ -17,12 +16,14 @@ test("addHouse", () => {
         maintenencePay: 13
       }
     },
-    addHouse(newId)
+    addHouse()
   );
 
   const { houses, inputs } = state;
 
   expect(houses).toHaveLength(1);
+  expect(houses[0].id).toBe(1);
+  expect(houses[0].key).toBe(1);
   expect(houses[0].location).toBe("풍납동");
   expect(houses[0].floor).toBe(2);
   expect(houses[0].deposit).toBe(13000);
@@ -35,6 +36,35 @@ test("addHouse", () => {
     monthly: 0,
     maintenencePay: 0
   });
+});
+
+test("confirmNewIdWhenAddHouse", () => {
+  const existedMaxId = 100;
+  const state = reducer(
+    {
+      houses: [{
+        id: existedMaxId,
+        key: existedMaxId,
+        location: "풍납동",
+        floor: 2,
+        deposit: 13000,
+        monthly: 0,
+        maintenencePay: 13
+      }],
+      inputs: {
+        location: "역삼동",
+        floor: 3,
+        deposit: 30000,
+        monthly: 0,
+        maintenencePay: 7
+      }
+    },
+    addHouse()
+  );
+
+  const { houses } = state;
+
+  expect( houses[houses.length - 1].id).toBe(existedMaxId + 1);
 });
 
 test("removeHouse", () => {

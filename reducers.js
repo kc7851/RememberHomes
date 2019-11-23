@@ -4,7 +4,6 @@ import { addHouse, removeHouse, updateHouse } from "./functions";
 import Counter from "./utils/counter";
 
 export const initialState = {
-  counter: Counter(),
   houses: [
     {
       id: 1,
@@ -45,11 +44,12 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
   const handlers = {
-    [ADD_HOUSE]: (newId) => ({
-      ...addHouse(state, newId.newId)
-    }),
-    [REMOVE_HOUSE]: (houseId) => removeHouse(state, houseId.houseId),
-    [UPDATE_HOUSE]: (houseId) => updateHouse(state, houseId.houseId)
+    [ADD_HOUSE]: () => {
+      const newId = Math.max(0, ...state.houses.map(house => house.id));
+      return { ...addHouse(state, newId + 1) };
+    },
+    [REMOVE_HOUSE]: houseId => removeHouse(state, houseId.houseId),
+    [UPDATE_HOUSE]: houseId => updateHouse(state, houseId.houseId)
   };
   const handler = handlers[action.type];
   return handler ? handler(action) : state;

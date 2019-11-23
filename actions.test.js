@@ -1,26 +1,31 @@
-import {
-  addHouse,
-  removeHouse,
-  updateHouse,
-} from './actions';
+import { addHouse, removeHouse, updateHouse, setInputs } from "./actions";
 
 import {
   ADD_HOUSE,
   REMOVE_HOUSE,
   UPDATE_HOUSE,
-} from './actionTypes';
+  SET_INPUTS
+} from "./actionTypes";
 
-test('addHouse', () => {
+test("addHouse", () => {
   expect(addHouse(1).type).toEqual(ADD_HOUSE);
 });
 
-test('removeHouse', () => {
+test("removeHouse", () => {
   expect(removeHouse(1).type).toEqual(REMOVE_HOUSE);
 });
 
-test('updateHouse', () => {
+test("updateHouse", () => {
   expect(updateHouse(1).type).toEqual(UPDATE_HOUSE);
 });
 
-
-
+test("setInputs", () => {
+  const inputs = {
+    location: "풍납동",
+    floor: 2,
+    deposit: 13000,
+    monthly: 0,
+    maintenencePay: 13
+  };
+  expect(setInputs(inputs).type).toEqual(SET_INPUTS);
+});

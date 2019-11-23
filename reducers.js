@@ -1,7 +1,6 @@
 import { ADD_HOUSE, REMOVE_HOUSE, UPDATE_HOUSE } from "./actionTypes";
 
 import { addHouse, removeHouse, updateHouse } from "./functions";
-import Counter from "./utils/counter";
 
 export const initialState = {
   houses: [

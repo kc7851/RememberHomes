@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StyleSheet, ScrollView, Button } from "react-native";
-import { addHouse, setInputs } from "../actions";
+import { addHouse, setInputs, updateHouse } from "../actions";
 
 import CustomInput from "../components/CustomInput";
 import CustomRNPickerSelect from "../components/CustomRNPickerSelect";
@@ -14,7 +14,7 @@ function HouseInputs({ navigation }) {
 
   const onAddHouse = () => {
     if (isUpdate) {
-      dispatch(updateHouse());
+      dispatch(updateHouse(navigation.state.params.houseId));
     }else{
       dispatch(addHouse());
     }

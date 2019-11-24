@@ -5,9 +5,9 @@ export const addHouse = (state, newId) => {
     houses: [
       ...houses,
       {
+        ...inputs,
         id: newId,
-        key: newId.toString(),
-        ...inputs
+        key: newId.toString()
       }
     ],
     inputs: {
@@ -40,7 +40,13 @@ export const updateHouse = (state, houseId) => {
           }
         : house
     ),
-    inputs: {}
+    inputs: {
+      location: "",
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
+    }
   };
 };
 

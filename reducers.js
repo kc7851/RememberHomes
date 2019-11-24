@@ -8,28 +8,10 @@ export const initialState = {
       id: 1,
       key: "1",
       location: "풍납동",
-      floor: 2,
-      deposit: 13000,
-      monthlyFee: 0,
-      maintenenceFee: 13
-    },
-    {
-      id: 2,
-      key: "2",
-      location: "성내동",
-      floor: 4,
-      deposit: 20000,
-      monthlyFee: 0,
-      maintenenceFee: 5
-    },
-    {
-      id: 3,
-      key: "3",
-      location: "역삼동",
-      floor: 3,
-      deposit: 30000,
-      monthlyFee: 0,
-      maintenenceFee: 8
+      floor: "2",
+      deposit: "13000",
+      monthlyFee: "0",
+      maintenenceFee: "13"
     }
   ],
   inputs: {

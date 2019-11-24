@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   Button
 } from "react-native";
-import { removeHouse } from "../actions";
+import { removeHouse } from "../redux/actions";
 
 function HouseList({ navigation }) {
   const houses = useSelector(state => state.houses);
@@ -33,7 +33,7 @@ function HouseList({ navigation }) {
               <TouchableOpacity onPress={() => onGoToDetail(item.id)}>
                 <View style={styles.listItemCont}>
                   <Text style={styles.listItem}>
-                    위치:{item.location} / 층수: {item.floor}
+                    위치:{item.location} / 층수: {item.floor}층
                   </Text>
                 </View>
                 <View style={styles.listItemCont}>

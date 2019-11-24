@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StyleSheet, ScrollView, Button } from "react-native";
-import { addHouse, setInputs, updateHouse } from "../actions";
+import { addHouse, setInputs, updateHouse } from "../redux/actions";
 
 import CustomInput from "../components/CustomInput";
 import CustomRNPickerSelect from "../components/CustomRNPickerSelect";

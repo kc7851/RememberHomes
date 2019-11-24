@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { Platform, StatusBar } from "react-native";
 import StackApp from "./navigation/AppNavigator";
 
-import store from "./store";
+import store from "./redux/store";
 
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);

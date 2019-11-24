@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { setInputs } from "../actions";
+import { setInputs } from "../redux/actions";
 
 function HouseDetatil({ navigation }) {
   const dispatch = useDispatch();

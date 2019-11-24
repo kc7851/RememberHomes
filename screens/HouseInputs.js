@@ -1,16 +1,25 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, ScrollView, Platform, Button } from "react-native";
+import { StyleSheet, ScrollView, Button } from "react-native";
 import { addHouse, setInputs } from "../actions";
 
 import CustomInput from "../components/CustomInput";
 import CustomRNPickerSelect from "../components/CustomRNPickerSelect";
 
-function HouseInputs() {
+function HouseInputs({ navigation }) {
   const dispatch = useDispatch();
   const inputs = useSelector(state => state.inputs);
+  
+  const isUpdate = navigation.state.params.isUpdate;
 
-  const onAddHouse = () => dispatch(addHouse());
+  const onAddHouse = () => {
+    if (isUpdate) {
+      dispatch(updateHouse());
+    }else{
+      dispatch(addHouse());
+    }
+    navigation.navigate("HouseList");
+  };
 
   const onChange = (name, text) => {
     const newInputs = {
@@ -77,7 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingTop: 20,
     width: "100%",
-    paddingHorizontal: 15,
+    paddingHorizontal: 15
   }
 });
 

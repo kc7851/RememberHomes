@@ -8,10 +8,10 @@ test("firstAddHouse", () => {
       houses: [],
       inputs: {
         location: "풍납동",
-        floor: 2,
-        deposit: 13000,
-        monthly: 0,
-        maintenencePay: 13
+        floor: "2",
+        deposit: "13000",
+        monthlyFee: "0",
+        maintenenceFee: "13"
       }
     },
     addHouse()
@@ -21,18 +21,18 @@ test("firstAddHouse", () => {
 
   expect(houses).toHaveLength(1);
   expect(houses[0].id).toBe(1);
-  expect(houses[0].key).toBe(1);
+  expect(houses[0].key).toBe("1");
   expect(houses[0].location).toBe("풍납동");
-  expect(houses[0].floor).toBe(2);
-  expect(houses[0].deposit).toBe(13000);
-  expect(houses[0].monthly).toBe(0);
-  expect(houses[0].maintenencePay).toBe(13);
+  expect(houses[0].floor).toBe("2");
+  expect(houses[0].deposit).toBe("13000");
+  expect(houses[0].monthlyFee).toBe("0");
+  expect(houses[0].maintenenceFee).toBe("13");
   expect(inputs).toEqual({
     location: "",
-    floor: 0,
-    deposit: 0,
-    monthly: 0,
-    maintenencePay: 0
+    floor: null,
+    deposit: "",
+    monthlyFee: "",
+    maintenenceFee: ""
   });
 });
 
@@ -40,21 +40,23 @@ test("confirmNewIdWhenAddHouse", () => {
   const existedMaxId = 100;
   const state = reducer(
     {
-      houses: [{
-        id: existedMaxId,
-        key: existedMaxId,
-        location: "풍납동",
-        floor: 2,
-        deposit: 13000,
-        monthly: 0,
-        maintenencePay: 13
-      }],
+      houses: [
+        {
+          id: existedMaxId,
+          key: existedMaxId,
+          location: "풍납동",
+          floor: "2",
+          deposit: "13000",
+          monthlyFee: "0",
+          maintenenceFee: "13"
+        }
+      ],
       inputs: {
         location: "역삼동",
-        floor: 3,
-        deposit: 30000,
-        monthly: 0,
-        maintenencePay: 7
+        floor: "3",
+        deposit: "30000",
+        monthlyFee: "",
+        maintenenceFee: "7"
       }
     },
     addHouse()
@@ -62,7 +64,7 @@ test("confirmNewIdWhenAddHouse", () => {
 
   const { houses } = state;
 
-  expect( houses[houses.length - 1].id).toBe(existedMaxId + 1);
+  expect(houses[houses.length - 1].id).toBe(existedMaxId + 1);
 });
 
 test("removeHouse", () => {
@@ -70,29 +72,29 @@ test("removeHouse", () => {
     houses: [
       {
         id: 1,
-        key: 1,
+        key: "1",
         location: "풍납동",
-        floor: 2,
-        deposit: 13000,
-        monthly: 0,
-        maintenencePay: 13
+        floor: "2",
+        deposit: "13000",
+        monthlyFee: "0",
+        maintenenceFee: "13"
       },
       {
         id: 2,
-        key: 2,
+        key: "2",
         location: "성내동",
-        floor: 4,
-        deposit: 20000,
-        monthly: 0,
-        maintenencePay: 5
+        floor: "4",
+        deposit: "20000",
+        monthlyFee: "0",
+        maintenenceFee: "5"
       }
     ],
     inputs: {
       location: "",
-      floor: 0,
-      deposit: 0,
-      monthly: 0,
-      maintenencePay: 0
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
     }
   };
   const state = reducer(initState, removeHouse(2));
@@ -106,66 +108,65 @@ test("updateHouse", () => {
     houses: [
       {
         id: 1,
-        key: 1,
+        key: "1",
         location: "풍납동",
-        floor: 2,
-        deposit: 13000,
-        monthly: 0,
-        maintenencePay: 13
+        floor: "2",
+        deposit: "13000",
+        monthlyFee: "0",
+        maintenenceFee: "13"
       },
       {
         id: 2,
-        key: 2,
+        key: "2",
         location: "성내동",
-        floor: 4,
-        deposit: 20000,
-        monthly: 0,
-        maintenencePay: 5
+        floor: "4",
+        deposit: "20000",
+        monthlyFee: "0",
+        maintenenceFee: "5"
       }
     ],
     inputs: {
       location: "역삼동",
-      floor: 3,
-      deposit: 30000,
-      monthly: 0,
-      maintenencePay: 7
+      floor: "3",
+      deposit: "30000",
+      monthlyFee: "",
+      maintenenceFee: "7"
     }
   };
   const state = reducer(initState, updateHouse(2));
 
-  const updatedHouse = state.houses[state.houses.findIndex(house => house.id === 2)]
-  expect(updatedHouse).toEqual(
-    {
-      id: 2,
-      key: 2,
-      location: "역삼동",
-      floor: 3,
-      deposit: 30000,
-      monthly: 0,
-      maintenencePay: 7
-    }
-  );
+  const updatedHouse =
+    state.houses[state.houses.findIndex(house => house.id === 2)];
+  expect(updatedHouse).toEqual({
+    id: 2,
+    key: "2",
+    location: "역삼동",
+    floor: "3",
+    deposit: "30000",
+    monthlyFee: "",
+    maintenenceFee: "7"
+  });
 });
 
 test("setInputs", () => {
   const newInputs = {
     location: "역삼동",
-      floor: 3,
-      deposit: 30000,
-      monthly: 0,
-      maintenencePay: 7
-  }
+    floor: "3",
+    deposit: "30000",
+    monthlyFee: "",
+    maintenenceFee: "7"
+  };
 
   const initState = {
     houses: [],
     inputs: {
       location: "",
-    floor: 0,
-    deposit: 0,
-    monthly: 0,
-    maintenencePay: 0
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
     }
-  }
+  };
   const state = reducer(initState, setInputs(newInputs));
 
   const { inputs } = state;

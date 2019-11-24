@@ -24,8 +24,8 @@ test("setInputs", () => {
     location: "풍납동",
     floor: 2,
     deposit: 13000,
-    monthly: 0,
-    maintenencePay: 13
+    monthlyFee: 0,
+    maintenenceFee: 13
   };
   expect(setInputs(inputs).type).toEqual(SET_INPUTS);
 });

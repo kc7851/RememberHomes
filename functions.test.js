@@ -8,8 +8,8 @@ test("addHouse", () => {
       location: "풍납동",
       floor: "2",
       deposit: "13000",
-      monthly: "0",
-      maintenencePay: "13"
+      monthlyFee: "0",
+      maintenenceFee: "13"
     }
   };
 
@@ -19,12 +19,12 @@ test("addHouse", () => {
   expect(houses).toEqual([
     {
       id: newId,
-      key: newId,
+      key: newId.toString(),
       location: state.inputs.location,
       floor: state.inputs.floor,
       deposit: state.inputs.deposit,
-      monthly: state.inputs.monthly,
-      maintenencePay: state.inputs.maintenencePay
+      monthlyFee: state.inputs.monthlyFee,
+      maintenenceFee: state.inputs.maintenenceFee
     }
   ]);
 });
@@ -35,29 +35,29 @@ test("removeHouse", () => {
     houses: [
       {
         id: 1,
-        key: 1,
+        key: "1",
         location: "풍납동",
-        floor: 2,
-        deposit: 13000,
-        monthly: 0,
-        maintenencePay: 13
+        floor: "2",
+        deposit: "13000",
+        monthlyFee: "0",
+        maintenenceFee: "13"
       },
       {
         id: 2,
-        key: 2,
+        key: "2",
         location: "성내동",
-        floor: 4,
-        deposit: 20000,
-        monthly: 0,
-        maintenencePay: 5
+        floor: "4",
+        deposit: "20000",
+        monthlyFee: "0",
+        maintenenceFee: "5"
       }
     ],
     inputs: {
       location: "",
-      floor: "0",
-      deposit: "0",
-      monthly: "0",
-      maintenencePay: "0"
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
     }
   };
 
@@ -67,12 +67,12 @@ test("removeHouse", () => {
   expect(houses).toEqual([
     {
       id: 1,
-      key: 1,
+      key: "1",
       location: "풍납동",
-      floor: 2,
-      deposit: 13000,
-      monthly: 0,
-      maintenencePay: 13
+      floor: "2",
+      deposit: "13000",
+      monthlyFee: "0",
+      maintenenceFee: "13"
     }
   ]);
 });
@@ -83,29 +83,29 @@ test("updateHouse", () => {
     houses: [
       {
         id: 1,
-        key: 1,
+        key: "1",
         location: "풍납동",
-        floor: 2,
-        deposit: 13000,
-        monthly: 0,
-        maintenencePay: 13
+        floor: "2",
+        deposit: "13000",
+        monthlyFee: "0",
+        maintenenceFee: "13"
       },
       {
         id: 2,
-        key: 2,
+        key: "2",
         location: "성내동",
-        floor: 4,
-        deposit: 20000,
-        monthly: 0,
-        maintenencePay: 5
+        floor: "4",
+        deposit: "20000",
+        monthlyFee: "0",
+        maintenenceFee: "5"
       }
     ],
     inputs: {
       location: "역삼동",
       floor: "3",
       deposit: "30000",
-      monthly: "0",
-      maintenencePay: "7"
+      monthlyFee: "",
+      maintenenceFee: "7"
     }
   };
 
@@ -115,31 +115,31 @@ test("updateHouse", () => {
 
   expect(updatedHouse).toEqual({
     id: updateId,
-    key: updateId,
+    key: updateId.toString(),
     location: state.inputs.location,
     floor: state.inputs.floor,
     deposit: state.inputs.deposit,
-    monthly: state.inputs.monthly,
-    maintenencePay: state.inputs.maintenencePay
+    monthlyFee: state.inputs.monthlyFee,
+    maintenenceFee: state.inputs.maintenenceFee
   });
 });
 
 test("setInputs", () => {
   const newInputs = {
     location: "역삼동",
-    floor: 3,
-    deposit: 30000,
-    monthly: 0,
-    maintenencePay: 7
+    floor: "3",
+    deposit: "30000",
+    monthlyFee: "",
+    maintenenceFee: "7"
   };
   const initState = {
     houses: [],
     inputs: {
       location: "",
-      floor: "0",
-      deposit: "0",
-      monthly: "0",
-      maintenencePay: "0"
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
     }
   };
 

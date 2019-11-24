@@ -12,10 +12,10 @@ export const addHouse = (state, newId) => {
     ],
     inputs: {
       location: "",
-      floor: "0",
-      deposit: "0",
-      monthly: "0",
-      maintenencePay: "0"
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
     }
   };
 };

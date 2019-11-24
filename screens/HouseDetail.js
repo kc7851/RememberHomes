@@ -6,12 +6,13 @@ import { setInputs } from "../actions";
 function HouseDetatil({ navigation }) {
   const dispatch = useDispatch();
   const houseId = navigation.state.params.houseId;
-  const house = useSelector(state => state.houses).filter(house => house.id == houseId)[0];
+  const house = useSelector(state => state.houses).find(
+    house => house.id == houseId
+  );
 
-  console.log(house);
   const onUpdate = () => {
     dispatch(setInputs(house));
-    navigation.navigate("HouseInputs", { isUpdate: true });
+    navigation.navigate("HouseInputs", { isUpdate: true, houseId: houseId });
   };
 
   return (

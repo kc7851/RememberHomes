@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   StyleSheet,
@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   Button
 } from "react-native";
-import { removeHouse } from "../redux/actions";
+import { removeHouse, fetchHouses, saveHouses } from "../redux/actions";
 
 function HouseList({ navigation }) {
   const houses = useSelector(state => state.houses);
@@ -23,6 +23,13 @@ function HouseList({ navigation }) {
   const onDeleteItem = id => {
     dispatch(removeHouse(id));
   };
+  useEffect(() => {
+    dispatch(fetchHouses());
+  }, []);
+  useEffect(() => {
+    dispatch(saveHouses(houses));
+  }, [houses]);
+
   return (
     <View style={styles.container}>
       <ScrollView>

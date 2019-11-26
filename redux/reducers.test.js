@@ -1,6 +1,6 @@
-import { reducer } from "./reducers";
+import { reducer, initialState } from "./reducers";
 
-import { addHouse, removeHouse, updateHouse, setInputs } from "./actions";
+import { addHouse, removeHouse, updateHouse, setInputs, setHouses } from "./actions";
 
 test("firstAddHouse", () => {
   const state = reducer(
@@ -173,3 +173,60 @@ test("setInputs", () => {
 
   expect(newInputs).toEqual(inputs);
 });
+
+test('setHousesExistedFromLocalStorage', () => {
+  const initState = {
+    houses: [],
+    inputs: {
+      location: "",
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
+    }
+  };
+
+  const getHouses = [
+    {
+      id: 1,
+      key: "1",
+      location: "풍납동",
+      floor: "2",
+      deposit: "13000",
+      monthlyFee: "0",
+      maintenenceFee: "13"
+    },
+    {
+      id: 2,
+      key: "2",
+      location: "성내동",
+      floor: "4",
+      deposit: "20000",
+      monthlyFee: "0",
+      maintenenceFee: "5"
+    }
+  ];
+  const state = reducer(initState, setHouses(getHouses))
+
+  expect(state.houses).toEqual(getHouses);
+})
+
+test('setHousesNotExistedFromLocalStorage', () => {
+  const initState = {
+    houses: [],
+    inputs: {
+      location: "",
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
+    }
+  };
+
+  const getHouses = [];
+
+  const state = reducer(initState, setHouses(getHouses))
+
+  expect(state.houses).toEqual(getHouses);
+})
+

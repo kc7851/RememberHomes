@@ -1,4 +1,4 @@
-import { addHouse, removeHouse, updateHouse, setInputs } from "./functions";
+import { addHouse, removeHouse, updateHouse, setInputs, setHouses } from "./functions";
 
 test("addHouse", () => {
   const newId = 100;
@@ -149,3 +149,41 @@ test("setInputs", () => {
 
   expect(newInputs).toEqual(inputs);
 });
+
+test('setHouses', () => {
+  const initState = {
+    houses: [],
+    inputs: {
+      location: "",
+      floor: null,
+      deposit: "",
+      monthlyFee: "",
+      maintenenceFee: ""
+    }
+  };
+
+  const getHouses = [
+    {
+      id: 1,
+      key: "1",
+      location: "풍납동",
+      floor: "2",
+      deposit: "13000",
+      monthlyFee: "0",
+      maintenenceFee: "13"
+    },
+    {
+      id: 2,
+      key: "2",
+      location: "성내동",
+      floor: "4",
+      deposit: "20000",
+      monthlyFee: "0",
+      maintenenceFee: "5"
+    }
+  ];
+
+  const state = setHouses(initState, getHouses);
+
+  expect(state.houses).toEqual(getHouses);
+})

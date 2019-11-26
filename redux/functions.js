@@ -56,3 +56,14 @@ export const setInputs = (state, newInputs) => {
     inputs: newInputs
   };
 };
+
+export const setHouses = (state, getHouses) => {
+  const { houses } = state;
+  return {
+    ...state,
+    houses: [
+      ...houses,
+      ...getHouses
+    ]
+  }
+}

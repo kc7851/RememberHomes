@@ -1,36 +1,10 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import React from 'react';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import HouseList from "../screens/HouseList";
-import HouseInputs from "../screens/HouseInputs";
-import HouseDetail from "../screens/HouseDetail";
+import TabNavigator from './TabNavigator';
 
-const MainNavigator = createStackNavigator(
-  {
-    HouseList: {
-      screen: HouseList,
-      navigationOptions: () => ({
-        title: `리스트`
-      })
-    },
-    HouseInputs: {
-      screen: HouseInputs,
-      navigationOptions: () => ({
-        title: `정보 입력`
-      })
-    },
-    HouseDetail: {
-      screen: HouseDetail,
-      navigationOptions: () => ({
-        title: `상세 정보`
-      })
-    }
-  },
-  {
-    initialRouteName: "HouseList"
-  }
+export default createAppContainer(
+  createSwitchNavigator({
+    Main: TabNavigator,
+  })
 );
-
-const StackApp = createAppContainer(MainNavigator);
-
-export default StackApp;

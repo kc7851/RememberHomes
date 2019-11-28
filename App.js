@@ -3,7 +3,7 @@ import { Asset } from "expo-asset";
 import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { Platform, StatusBar } from "react-native";
-import StackApp from "./navigation/AppNavigator";
+import AppStack from "./navigation/AppNavigator";
 
 import store from "./redux/store";
 
@@ -22,7 +22,7 @@ function App(props) {
     return (
       <Provider store={store}>
         {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-        <StackApp />
+        <AppStack />
       </Provider>
     );
   }

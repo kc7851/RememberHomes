@@ -7,7 +7,8 @@ import {
   View,
   FlatList,
   TouchableOpacity,
-  Button
+  Button,
+  StatusBar
 } from "react-native";
 import { removeHouse, fetchHouses, saveHouses } from "../redux/actions";
 
@@ -18,7 +19,10 @@ function HouseList({ navigation }) {
     navigation.navigate("HouseDetail", { houseId: id });
   };
   const onCreate = () => {
-    navigation.navigate("HouseInputs", { isUpdate: false });
+    navigation.navigate("HouseInputs", {
+      isUpdate: false,
+      title: "새 집 입력"
+    });
   };
   const onDeleteItem = id => {
     dispatch(removeHouse(id));
@@ -32,6 +36,7 @@ function HouseList({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" />
       <ScrollView>
         <FlatList
           data={houses}

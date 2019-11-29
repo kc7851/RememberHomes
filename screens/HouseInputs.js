@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, ScrollView, Button } from "react-native";
+import { StyleSheet, ScrollView, Button, StatusBar } from "react-native";
 import { addHouse, setInputs, updateHouse } from "../redux/actions";
 
 import CustomInput from "../components/CustomInput";
@@ -31,6 +31,7 @@ function HouseInputs({ navigation }) {
 
   return (
     <ScrollView style={styles.container}>
+      <StatusBar barStyle="dark-content" />
       <CustomInput
         text="위치"
         name="location"

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, Button, StatusBar } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { setInputs } from "../redux/actions";
 
@@ -12,11 +12,16 @@ function HouseDetatil({ navigation }) {
 
   const onUpdate = () => {
     dispatch(setInputs(house));
-    navigation.navigate("HouseInputs", { isUpdate: true, houseId: houseId });
+    navigation.navigate("HouseInputs", {
+      isUpdate: true,
+      houseId: houseId,
+      title: "집 정보 수정"
+    });
   };
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" />
       <View>
         <Text>위치: {house.location}</Text>
       </View>

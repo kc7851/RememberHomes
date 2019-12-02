@@ -9,7 +9,10 @@ export const initialState = {
     floor: null,
     deposit: "",
     monthlyFee: "",
-    maintenenceFee: ""
+    maintenenceFee: "",
+    fungi: false,
+    waterPressure: false,
+    sunshine: false
   }
 };
 

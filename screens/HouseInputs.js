@@ -6,16 +6,18 @@ import { addHouse, setInputs, updateHouse } from "../redux/actions";
 import CustomInput from "../components/CustomInput";
 import CustomRNPickerSelect from "../components/CustomRNPickerSelect";
 
+import { CheckBox } from "react-native-elements";
+
 function HouseInputs({ navigation }) {
   const dispatch = useDispatch();
   const inputs = useSelector(state => state.inputs);
-  
+
   const isUpdate = navigation.state.params.isUpdate;
 
   const onAddHouse = () => {
     if (isUpdate) {
       dispatch(updateHouse(navigation.state.params.houseId));
-    }else{
+    } else {
       dispatch(addHouse());
     }
     navigation.navigate("HouseList");
@@ -29,6 +31,7 @@ function HouseInputs({ navigation }) {
     dispatch(setInputs(newInputs));
   };
 
+  console.log(check);
   return (
     <ScrollView style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -74,6 +77,24 @@ function HouseInputs({ navigation }) {
         value={inputs.maintenenceFee}
         onChange={onChange}
         padType="number-pad"
+      />
+
+      <CheckBox
+        title="습기/누수가 없는가? (벽구석 곰팡이 확인)"
+        checked={inputs.fungi}
+        onPress={() => onChange("fungi", !inputs.fungi)}
+      />
+
+      <CheckBox
+        title="화장실과 싱크대 수압이 충분한가?"
+        checked={inputs.waterPressure}
+        onPress={() => onChange("waterPressure", !inputs.waterPressure)}
+      />
+
+      <CheckBox
+        title="일조량이 충분한가?"
+        checked={inputs.sunshine}
+        onPress={() => onChange("sunshine", !inputs.sunshine)}
       />
 
       <Button onPress={onAddHouse} title="저장하기" color="#841584" />

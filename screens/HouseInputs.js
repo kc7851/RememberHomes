@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, ScrollView, Button, StatusBar } from "react-native";
+import { StyleSheet, ScrollView, Button, StatusBar, View } from "react-native";
 import { addHouse, setInputs, updateHouse } from "../redux/actions";
 
 import CustomInput from "../components/CustomInput";
 import CustomRNPickerSelect from "../components/CustomRNPickerSelect";
+
+import CustomCheckBox from "../components/CustomCheckbox";
 
 import { CheckBox } from "react-native-elements";
 
@@ -24,6 +26,7 @@ function HouseInputs({ navigation }) {
   };
 
   const onChange = (name, text) => {
+    console.log("onChange", name, text);
     const newInputs = {
       ...inputs,
       [name]: text
@@ -31,7 +34,6 @@ function HouseInputs({ navigation }) {
     dispatch(setInputs(newInputs));
   };
 
-  console.log(check);
   return (
     <ScrollView style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -79,6 +81,20 @@ function HouseInputs({ navigation }) {
         padType="number-pad"
       />
 
+      <View style={styles.checkBoxContainer}>
+        <CustomCheckBox
+          checked={inputs.sink}
+          onPress={() => onChange("sink", !inputs.sink)}
+          text="싱크대"
+        />
+
+        <CustomCheckBox
+          checked={inputs.aircon}
+          onPress={() => onChange("aircon", !inputs.aircon)}
+          text="에어컨"
+        />
+      </View>
+
       <CheckBox
         title="습기/누수가 없는가? (벽구석 곰팡이 확인)"
         checked={inputs.fungi}
@@ -109,6 +125,10 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     width: "100%",
     paddingHorizontal: 15
+  },
+  checkBoxContainer: {
+    flexDirection: "row",
+    alignItems: "center"
   }
 });
 

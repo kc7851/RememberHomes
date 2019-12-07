@@ -25,6 +25,8 @@ export const initialState = {
     fungi: false,
     waterPressure: false,
     sunshine: false,
+    sink: false,
+    aircon: false
   }
 };
 

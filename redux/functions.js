@@ -1,3 +1,5 @@
+import { initialState } from './initialState';
+
 export const addHouse = (state, newId) => {
   const { houses, inputs } = state;
   return {
@@ -10,13 +12,7 @@ export const addHouse = (state, newId) => {
         key: newId.toString()
       }
     ],
-    inputs: {
-      location: "",
-      floor: null,
-      deposit: "",
-      monthlyFee: "",
-      maintenenceFee: ""
-    }
+    inputs: initialState.inputs
   };
 };
 
@@ -40,13 +36,7 @@ export const updateHouse = (state, houseId) => {
           }
         : house
     ),
-    inputs: {
-      location: "",
-      floor: null,
-      deposit: "",
-      monthlyFee: "",
-      maintenenceFee: ""
-    }
+    inputs: initialState.inputs
   };
 };
 
@@ -61,9 +51,6 @@ export const setHouses = (state, getHouses) => {
   const { houses } = state;
   return {
     ...state,
-    houses: [
-      ...houses,
-      ...getHouses
-    ]
-  }
-}
+    houses: [...houses, ...getHouses]
+  };
+};

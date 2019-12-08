@@ -1,4 +1,4 @@
-import { reducer, initialState } from "./reducers";
+import { reducer } from "./reducers";
 
 import { addHouse, removeHouse, updateHouse, setInputs, setHouses } from "./actions";
 
@@ -27,13 +27,11 @@ test("firstAddHouse", () => {
   expect(houses[0].deposit).toBe("13000");
   expect(houses[0].monthlyFee).toBe("0");
   expect(houses[0].maintenenceFee).toBe("13");
-  expect(inputs).toEqual({
-    location: "",
-    floor: null,
-    deposit: "",
-    monthlyFee: "",
-    maintenenceFee: ""
-  });
+  expect(inputs.location).toBe("");
+  expect(inputs.floor).toBe(null);
+  expect(inputs.deposit).toBe("");
+  expect(inputs.monthlyFee).toBe("");
+  expect(inputs.maintenenceFee).toBe("");
 });
 
 test("confirmNewIdWhenAddHouse", () => {

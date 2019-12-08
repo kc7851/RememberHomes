@@ -6,6 +6,7 @@ import TabBarIcon from "../components/TabBarIcon";
 import HouseList from "../screens/HouseList";
 import HouseInputs from "../screens/HouseInputs";
 import HouseDetail from "../screens/HouseDetail";
+import Camera from "../screens/Camera";
 
 const HouseStack = createStackNavigator(
     {
@@ -31,6 +32,15 @@ const HouseStack = createStackNavigator(
         screen: HouseDetail,
         navigationOptions: () => ({
           title: "집 상세",
+          headerTitleStyle: {
+            fontSize: 24
+          }
+        })
+      },
+      HouseCamera: {
+        screen: Camera,
+        navigationOptions: () => ({
+          title: "카메라",
           headerTitleStyle: {
             fontSize: 24
           }

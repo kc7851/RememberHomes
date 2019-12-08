@@ -1,5 +1,5 @@
 import store from './store';
-import { initialState } from './reducers';
+import { initialState } from './initialState';
 
 test('initialState', () => {
   const { houses } = store.getState();

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { initialState } from '../redux/initialState';
 import {
   StyleSheet,
   Text,
@@ -10,7 +11,7 @@ import {
   Button,
   StatusBar
 } from "react-native";
-import { removeHouse, fetchHouses, saveHouses } from "../redux/actions";
+import { removeHouse, fetchHouses, setInputs, saveHouses } from "../redux/actions";
 
 function HouseList({ navigation }) {
   const houses = useSelector(state => state.houses);
@@ -19,6 +20,7 @@ function HouseList({ navigation }) {
     navigation.navigate("HouseDetail", { houseId: id });
   };
   const onCreate = () => {
+    dispatch(setInputs(initialState.inputs));
     navigation.navigate("HouseInputs", {
       isUpdate: false,
       title: "새 집 입력"

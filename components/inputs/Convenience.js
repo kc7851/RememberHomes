@@ -5,7 +5,7 @@ import { setInputs } from "../../redux/actions";
 
 import CustomCheckBox from "./CustomCheckbox";
 
-function Convenience() {
+function Convenience({ title }) {
   const dispatch = useDispatch();
   const inputs = useSelector(state => state.inputs);
   const convenience = inputs.convenience;
@@ -24,7 +24,7 @@ function Convenience() {
   return (
     <View style={{ marginTop: 20 }}>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 26 }}>편의 시설</Text>
+        <Text style={{ fontSize: 26 }}>{title}</Text>
       </View>
       <View style={styles.checkBoxRowContainer}>
         <CustomCheckBox

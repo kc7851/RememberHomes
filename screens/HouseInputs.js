@@ -33,19 +33,19 @@ function HouseInputs({ navigation }) {
       <ScrollView style={styles.scrollView}>
         <StatusBar barStyle="dark-content" />
 
-        <Require />
+        <Require title="필수 항목 입력" />
 
-        <Includes />
+        <Includes title="관리비 포함 내역" />
 
-        <Options />
+        <Options title="옵션" />
 
-        <Convenience />
+        <Convenience title="편의 시설" />
 
-        <Education />
+        <Education title="교육 시설" />
 
-        <Lifestyle />
+        <Lifestyle title="주변 환경" />
 
-        <Checklist />
+        <Checklist title="체크리스트" />
 
         <Photos />
       </ScrollView>

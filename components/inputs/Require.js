@@ -17,7 +17,7 @@ import {
   workdistanceArray
 } from "../../constants/InputDatas";
 
-function Require() {
+function Require({ title }) {
   const dispatch = useDispatch();
   const inputs = useSelector(state => state.inputs);
   const requires = useSelector(state => state.inputs.requires);
@@ -36,7 +36,7 @@ function Require() {
   return (
     <View>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 26 }}>필수 입력 항목</Text>
+        <Text style={{ fontSize: 26 }}>{title}</Text>
       </View>
       <CustomInput
         text="위치"

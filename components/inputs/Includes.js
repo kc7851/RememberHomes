@@ -5,7 +5,7 @@ import { setInputs } from "../../redux/actions";
 
 import CustomCheckBox from "./CustomCheckbox";
 
-function Includes() {
+function Includes({ title }) {
   const dispatch = useDispatch();
   const inputs = useSelector(state => state.inputs);
   const includes = inputs.includes;
@@ -24,7 +24,7 @@ function Includes() {
   return (
     <View style={{ marginTop: 20 }}>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 26 }}>관리비 포함 내역</Text>
+        <Text style={{ fontSize: 26 }}>{title}</Text>
       </View>
       <View style={styles.checkBoxRowContainer}>
         <CustomCheckBox

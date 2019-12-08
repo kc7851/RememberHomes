@@ -47,13 +47,13 @@ function HouseList({ navigation }) {
               <TouchableOpacity onPress={() => onGoToDetail(item.id)}>
                 <View style={styles.listItemCont}>
                   <Text style={styles.listItem}>
-                    위치:{item.location} / 층수: {item.floor}층
+                    위치:{item.requires.location} / 층수: {item.requires.floor}층
                   </Text>
                 </View>
                 <View style={styles.listItemCont}>
                   <Text style={styles.listItem}>
-                    보증금: {item.deposit} / 월세: {item.monthlyFee} / 관리비:{" "}
-                    {item.maintenenceFee}
+                    보증금: {item.requires.deposit} / 월세: {item.requires.monthlyFee} / 관리비:{" "}
+                    {item.requires.maintenenceFee}
                   </Text>
                   <Button title="X" onPress={() => onDeleteItem(item.id)} />
                 </View>

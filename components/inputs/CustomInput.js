@@ -29,11 +29,11 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flex: 1,
-    fontSize: 25
+    fontSize: 20
   },
   itemTextInput: {
     flex: 1,
-    fontSize: 25,
+    fontSize: 20,
     borderColor: "gray",
     borderWidth: 1,
     borderRadius: 4,

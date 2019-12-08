@@ -2,13 +2,13 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
-function CustomRNPickerSelect({ text, name, value, onChange, arrayItems }) {
+function CustomRNPickerSelect({ placeholder, text, name, value, onChange, arrayItems }) {
   return (
     <View style={styles.itemsContainer}>
       <Text style={styles.itemText}>{text}:</Text>
       <RNPickerSelect
         placeholder={{
-          label: "층을 선택하세요.",
+          label: placeholder,
           value: null,
           color: "black"
         }}
@@ -37,17 +37,13 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flex: 1,
-    fontSize: 25
-  },
-  pickerSelect: {
-    flex: 1,
-    fontSize: 25
+    fontSize: 20
   }
 });
 
 const pickerSelectStyles = {
   inputIOS: {
-    fontSize: 25,
+    fontSize: 20,
     // paddingVertical: 14,
     // height: 100,
     // paddingHorizontal: 10,
@@ -60,7 +56,7 @@ const pickerSelectStyles = {
   },
   inputAndroid: {
     flex: 1,
-    fontSize: 25,
+    fontSize: 20,
     paddingHorizontal: 10,
     paddingVertical: 8,
     borderWidth: 0.5,

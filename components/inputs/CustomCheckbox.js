@@ -6,9 +6,9 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 function CustomCheckBox({
   checked,
   onPress,
-  size = 26,
+  size = 20,
   color = "#211f30",
-  text = ""
+  name = ""
 }) {
   return (
     <TouchableOpacity style={styles.checkBox} onPress={onPress}>
@@ -18,7 +18,7 @@ function CustomCheckBox({
         name={checked ? "check-box" : "check-box-outline-blank"}
       />
 
-      <Text> {text} </Text>
+      <Text> {name} </Text>
     </TouchableOpacity>
   );
 }
@@ -26,7 +26,8 @@ function CustomCheckBox({
 const styles = StyleSheet.create({
   checkBox: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    flex: 0.33
   }
 });
 

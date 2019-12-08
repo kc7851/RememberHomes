@@ -14,21 +14,7 @@ import {
   setHouses,
 } from "./functions";
 
-export const initialState = {
-  houses: [],
-  inputs: {
-    location: "",
-    floor: null,
-    deposit: "",
-    monthlyFee: "",
-    maintenenceFee: "",
-    fungi: false,
-    waterPressure: false,
-    sunshine: false,
-    sink: false,
-    aircon: false
-  }
-};
+import { initialState } from './initialState';
 
 export const reducer = (state = initialState, action) => {
   const handlers = {

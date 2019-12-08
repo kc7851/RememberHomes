@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { View, Text } from "react-native";
 import { setInputs } from "../../redux/actions";
 
 import { CheckBox } from "react-native-elements";
 
-function Checklist() {
+function Checklist({ title }) {
   const dispatch = useDispatch();
   const inputs = useSelector(state => state.inputs);
   const checklist = inputs.checklist;
@@ -24,7 +24,7 @@ function Checklist() {
   return (
     <View style={{ marginTop: 20 }}>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 26 }}>체크리스트</Text>
+        <Text style={{ fontSize: 26 }}>{title}</Text>
       </View>
       <CheckBox
         title="융자가 있는가?"

@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { setInputs } from "../../redux/actions";
 
 import CustomCheckBox from "./CustomCheckbox";
 
-function Education() {
+function Education({ title }) {
   const dispatch = useDispatch();
   const inputs = useSelector(state => state.inputs);
   const education = inputs.education;
@@ -24,7 +24,7 @@ function Education() {
   return (
     <View style={{ marginTop: 20 }}>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 26 }}>교육 시설</Text>
+        <Text style={{ fontSize: 26 }}>{title}</Text>
       </View>
       <View style={styles.checkBoxRowContainer}>
         <CustomCheckBox

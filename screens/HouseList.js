@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { initialState } from '../redux/reducers';
+import { initialState } from '../redux/initialState';
 import {
   StyleSheet,
   Text,

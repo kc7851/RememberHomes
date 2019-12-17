@@ -27,7 +27,7 @@ function Checklist({ title }) {
         <Text style={{ fontSize: 26 }}>{title}</Text>
       </View>
       <CheckBox
-        title="융자가 있는가?"
+        title="융자가 없는가?"
         checked={checklist.융자}
         onPress={() => onChange("융자", !checklist.융자)}
       />

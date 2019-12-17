@@ -2,7 +2,14 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
-function CustomRNPickerSelect({ placeholder, text, name, value, onChange, arrayItems }) {
+function CustomRNPickerSelect({
+  placeholder,
+  text,
+  name,
+  value,
+  onChange,
+  arrayItems
+}) {
   return (
     <View style={styles.itemsContainer}>
       <Text style={styles.itemText}>{text}:</Text>
@@ -32,6 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingVertical: 5,
     alignItems: "center",
+    justifyContent: "flex-start",
     width: "100%",
     height: 40
   },
@@ -50,7 +58,7 @@ const pickerSelectStyles = {
     borderWidth: 1,
     borderColor: "gray",
     borderRadius: 4,
-    width: 174,
+    width: 163,
     color: "black"
     // paddingRight: 30, // to ensure the text is never behind the icon
   },

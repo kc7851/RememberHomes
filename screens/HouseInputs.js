@@ -31,23 +31,25 @@ function HouseInputs({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <StatusBar barStyle="dark-content" />
+        <View style={styles.componentsContainer}>
+          <StatusBar barStyle="dark-content" />
 
-        <Require title="필수 항목 입력" />
+          <Require title="필수 항목 입력" />
 
-        <Includes title="관리비 포함 내역" />
+          <Includes title="관리비 포함 내역" />
 
-        <Options title="옵션" />
+          <Options title="옵션" />
 
-        <Convenience title="편의 시설" />
+          <Convenience title="편의 시설" />
 
-        <Education title="교육 시설" />
+          <Education title="교육 시설" />
 
-        <Lifestyle title="주변 환경" />
+          <Lifestyle title="주변 환경" />
 
-        <Checklist title="체크리스트" />
+          <Checklist title="체크리스트" />
 
-        <Photos />
+          <Photos />
+        </View>
       </ScrollView>
       <View style={styles.bottom}>
         <Button onPress={goToCamera} title="사진찍기" color="#841584" />
@@ -61,14 +63,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: 20,
-    width: "100%",
-    paddingHorizontal: 15
+    width: "100%"
   },
   scrollView: { flex: 0.9 },
   checkBoxContainer: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    width: "100%"
+  },
+  componentsContainer: {
+    paddingHorizontal: 25
   },
   bottom: {
     flex: 0.1,

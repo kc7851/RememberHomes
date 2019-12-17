@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 0.1,
     position: "absolute",
     right: 0,
-    left: 300,
+    left: 280,
     top: 0,
     bottom: 150,
   },

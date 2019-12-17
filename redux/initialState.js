@@ -85,7 +85,7 @@ export const initialState = {
       외풍: false,
       도배: false,
       장판: false,
-      소음: false,
+      소음: false
     },
     photos: []
   }

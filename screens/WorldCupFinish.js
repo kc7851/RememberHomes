@@ -2,18 +2,20 @@ import React from "react";
 import { StyleSheet, View, Button, Text } from "react-native";
 
 function WorldCupFinish({ navigation }) {
-  const goToStart = () => {
-    navigation.navigate("WorldCupStart");
-  };
+
   const goToPlay = () => {
+    //TODO: 최소 2개이상일 때 가능하도록 확인하는 로직 필요.
+    //TODO: store.houses를 넘겨 줄 예정.
     navigation.navigate("WorldCupPlay");
   };
+
+  const victory = navigation.state.params.victory;
 
   return (
     <View style={styles.container}>
       <Text>WorldCupFinish</Text>
-      <Button onPress={goToStart} title="시작화면" color="#841584" />
-      <Button onPress={goToPlay} title="게임화면" color="#841584" />
+      <Text>{victory.houses}</Text>
+      <Button onPress={goToPlay} title="다시하기" color="#841584" />
     </View>
   );
 }

@@ -13,8 +13,6 @@ const alert = () => {
 };
 
 function WorldCupPlay({ navigation }) {
-  const [state, setState] = useState(initialState);
-
   // const initList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   //TODO: navigation parameter로 넘겨온 list로 변경 예정
   const initList = [
@@ -28,12 +26,6 @@ function WorldCupPlay({ navigation }) {
     { houses: 8 }
   ];
 
-  const goToFinish = selected => {
-    navigation.navigate("WorldCupFinish", {
-      victory: selected
-    });
-  };
-
   const initialState = {
     survive: initList,
     victory: [],
@@ -41,6 +33,8 @@ function WorldCupPlay({ navigation }) {
     round: 1,
     selected: null
   };
+
+  const [state, setState] = useState(initialState);
 
   const selected = selectedNumber => {
     setState({ ...state, selected: selectedNumber });
@@ -85,9 +79,17 @@ function WorldCupPlay({ navigation }) {
     }
   };
 
+  const goToFinish = selected => {
+    navigation.navigate("WorldCupFinish", {
+      victory: selected
+    });
+  };
+  
   const stage =
-    state.survive.length === 2 ? "결승전" : state.survive.length + "강 - " + state.round + "라운드";
-    
+    state.survive.length === 2
+      ? "결승전"
+      : state.survive.length + "강 - " + state.round + "라운드";
+
   return (
     <View style={styles.container}>
       <Text>WorldCupPlay</Text>

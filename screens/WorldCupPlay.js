@@ -34,13 +34,15 @@ function WorldCupPlay({ navigation }) {
   };
 
   const [state, setState] = useState(initialState);
-  const survive = state.survive;
-  const victory = state.victory;
-  const now = state.now;
-  const round = state.round;
-  const selected = state.selected;
-  const firstColor = state.firstColor;
-  const secondColor = state.secondColor;
+  const {
+    survive,
+    victory,
+    now,
+    round,
+    selected,
+    firstColor,
+    secondColor
+  } = state;
 
   const select = (house, selectedNumber) => {
     setState({
@@ -104,13 +106,13 @@ function WorldCupPlay({ navigation }) {
       ? "결승전"
       : survive.length + "강 - " + round + "라운드";
 
-  const candidateContainer = (color) => {
+  const candidateContainer = borderColor => {
     return {
       flex: 0.4,
       flexDirection: "row",
       width: "90%",
       backgroundColor: "#eee",
-      borderColor: color,
+      borderColor,
       borderWidth: 5
     };
   };
@@ -159,9 +161,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
     borderColor: "white",
     borderWidth: 5
-
-    // justifyContent: "center",
-    // alignItems: "center"
   },
   photo: {
     flex: 0.7,

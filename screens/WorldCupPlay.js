@@ -5,12 +5,9 @@ import {
   Button,
   Text,
   TouchableOpacity,
-  Alert
+  Image
 } from "react-native";
-
-const alert = () => {
-  Alert.alert("하나를 선택해야 합니다.");
-};
+import { alert } from "../utils/alert";
 
 function WorldCupPlay({ navigation }) {
   // const initList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
@@ -31,52 +28,69 @@ function WorldCupPlay({ navigation }) {
     victory: [],
     now: [initList[0], initList[1]],
     round: 1,
-    selected: null
+    selected: null,
+    firstColor: "white",
+    secondColor: "white"
   };
 
   const [state, setState] = useState(initialState);
 
-  const selected = selectedNumber => {
-    setState({ ...state, selected: selectedNumber });
+  const select = (house, selectedNumber) => {
+    setState({
+      ...state,
+      selected: house,
+      firstColor: selectedNumber === 1 ? "red" : "white",
+      secondColor: selectedNumber === 1 ? "white" : "red"
+    });
+  };
+
+  const next = () => {
+    if (!state.selected) {
+      alert("하나 이상을 선택해야 합니다.");
+      return;
+    }
+
+    if (state.survive.length === 2) {
+      goToFinish(state.selected);
+      return;
+    }
+
+    Math.floor(state.survive.length / 2) == state.round ? nextStage() : nextRound();
+  };
+
+  const nextStage = () => {
+    const survive = state.survive;
+    const victory = state.victory;
+    const selected = state.selected;
+    const newSurvive =
+      survive.length % 2 === 0
+        ? [...victory, selected]
+        : [...victory, selected, survive[survive.length - 1]];
+    setState({
+      survive: newSurvive,
+      victory: [],
+      now: [newSurvive[0], newSurvive[1]],
+      round: 1,
+      selected: null,
+      firstColor: "white",
+      secondColor: "white"
+    });
   };
 
   const nextRound = () => {
     const survive = state.survive;
     const victory = state.victory;
-    const round = state.round;
     const selected = state.selected;
-
-    if (!selected) {
-      alert();
-      return;
-    }
-
-    if (survive.length === 2) {
-      goToFinish(selected);
-    }
-    const isNextStage = Math.floor(survive.length / 2) == round;
-
-    if (isNextStage) {
-      const newSurvive =
-        survive.length % 2 === 0
-          ? [...victory, selected]
-          : [...victory, selected, survive[survive.length - 1]];
-      setState({
-        survive: newSurvive,
-        victory: [],
-        now: [newSurvive[0], newSurvive[1]],
-        round: 1,
-        selected: null
-      });
-    } else {
-      setState({
-        ...state,
-        victory: [...victory, selected],
-        now: [survive[round * 2], survive[round * 2 + 1]],
-        round: round + 1,
-        selected: null
-      });
-    }
+    const round = state.round;
+    setState({
+      ...state,
+      victory: [...victory, selected],
+      now: [survive[round * 2], survive[round * 2 + 1]],
+      round: round + 1,
+      selected: null,
+      firstColor: "white",
+      secondColor: "white"
+    });
   };
 
   const goToFinish = selected => {
@@ -84,31 +98,50 @@ function WorldCupPlay({ navigation }) {
       victory: selected
     });
   };
-  
+
   const stage =
     state.survive.length === 2
       ? "결승전"
       : state.survive.length + "강 - " + state.round + "라운드";
+
+  const candidateContainer = (number) => {
+    return {
+      flex: 0.4,
+      flexDirection: "row",
+      width: "90%",
+      backgroundColor: "#eee",
+      borderColor: number === 1 ? state.firstColor : state.secondColor,
+      borderWidth: 5
+    };
+  };
 
   return (
     <View style={styles.container}>
       <Text>WorldCupPlay</Text>
       <Text>{stage}</Text>
       <TouchableOpacity
-        onPress={() => selected(state.now[0])}
-        style={styles.selectView}
+        onPress={() => select(state.now[0], 1)}
+        style={candidateContainer(1)}
       >
-        <Text>{state.now[0].houses}</Text>
+        <Image
+          style={styles.photo}
+          source={require("../assets/house/house1.jpg")}
+        />
+        <Text style={styles.detail}>{state.now[0].houses}</Text>
       </TouchableOpacity>
       <Text>VS</Text>
       <TouchableOpacity
-        onPress={() => selected(state.now[1])}
-        style={styles.selectView}
+        onPress={() => select(state.now[1], 2)}
+        style={candidateContainer(2)}
       >
-        <Text>{state.now[1].houses}</Text>
+        <Image
+          style={styles.photo}
+          source={{ url: "https://source.unsplash.com/600x600/?house-indoor" }}
+        />
+        <Text style={styles.detail}>{state.now[1].houses}</Text>
       </TouchableOpacity>
 
-      <Button onPress={nextRound} title="선택" color="#841584" />
+      <Button onPress={next} title="선택" color="#841584" />
     </View>
   );
 }
@@ -121,10 +154,22 @@ const styles = StyleSheet.create({
   },
   selectView: {
     flex: 0.4,
-    width: "100%",
+    flexDirection: "row",
+    width: "90%",
     backgroundColor: "#eee",
-    justifyContent: "center",
-    alignItems: "center"
+    borderColor: "white",
+    borderWidth: 5
+
+    // justifyContent: "center",
+    // alignItems: "center"
+  },
+  photo: {
+    flex: 0.7,
+    height: "100%",
+    resizeMode: "cover"
+  },
+  detail: {
+    padding: 10
   }
 });
 

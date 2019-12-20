@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Button,
-  StatusBar,
-  ScrollView
-} from "react-native";
+import { StyleSheet, View, Button, StatusBar, ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { setInputs } from "../redux/actions";
 import Photos from "../components/detail/Photos";
 import Requires from "../components/detail/Requires";
 import Checked from "../components/detail/Checked";
 import Checklist from "../components/detail/Checklist";
+import { goTo } from "../utils/navi";
 
 function HouseDetatil({ navigation }) {
   const dispatch = useDispatch();
@@ -30,11 +25,12 @@ function HouseDetatil({ navigation }) {
 
   const onUpdate = () => {
     dispatch(setInputs(house));
-    navigation.navigate("HouseInputs", {
+    const options = {
       isUpdate: true,
       houseId: houseId,
       title: "집 정보 수정"
-    });
+    }
+    goTo(navigation, "HouseInputs", options);
   };
 
   return (
@@ -54,7 +50,7 @@ function HouseDetatil({ navigation }) {
 
           <Checked title="주변 환경" checked={lifestyle} />
 
-          <Checklist title="체크리스트" checklist={checklist}/>
+          <Checklist title="체크리스트" checklist={checklist} />
 
           {photos && <Photos houseId={houseId} />}
         </View>

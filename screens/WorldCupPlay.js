@@ -8,6 +8,7 @@ import {
   Image
 } from "react-native";
 import { alert } from "../utils/alert";
+import { goTo } from "../utils/navi";
 
 function WorldCupPlay({ navigation }) {
   // const initList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
@@ -60,7 +61,10 @@ function WorldCupPlay({ navigation }) {
     }
 
     if (survive.length === 2) {
-      goToFinish(selected);
+      const options = {
+        victory: selected
+      };
+      goTo(navigation, "WorldCupFinish", options);
       return;
     }
 
@@ -92,12 +96,6 @@ function WorldCupPlay({ navigation }) {
       selected: null,
       firstColor: "white",
       secondColor: "white"
-    });
-  };
-
-  const goToFinish = selected => {
-    navigation.navigate("WorldCupFinish", {
-      victory: selected
     });
   };
 

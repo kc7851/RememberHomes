@@ -10,6 +10,7 @@ import Convenience from "../components/inputs/Convenience";
 import Lifestyle from "../components/inputs/Lifestyle";
 import Photos from "../components/inputs/Photos";
 import Checklist from "../components/inputs/Checklist";
+import { goTo } from "../utils/navi";
 
 function HouseInputs({ navigation }) {
   const dispatch = useDispatch();
@@ -21,11 +22,7 @@ function HouseInputs({ navigation }) {
     } else {
       dispatch(addHouse());
     }
-    navigation.navigate("HouseList");
-  };
-
-  const goToCamera = () => {
-    navigation.navigate("HouseCamera");
+    goTo(navigation, "HouseList");
   };
 
   return (
@@ -52,7 +49,7 @@ function HouseInputs({ navigation }) {
         </View>
       </ScrollView>
       <View style={styles.bottom}>
-        <Button onPress={goToCamera} title="사진찍기" color="#841584" />
+        <Button onPress={() => goTo(navigation, "HouseCamera")} title="사진찍기" color="#841584" />
         <Button onPress={onAddHouse} title="저장하기" color="#841584" />
       </View>
     </View>

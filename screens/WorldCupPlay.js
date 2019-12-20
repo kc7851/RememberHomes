@@ -104,13 +104,13 @@ function WorldCupPlay({ navigation }) {
       ? "결승전"
       : survive.length + "강 - " + round + "라운드";
 
-  const candidateContainer = (number) => {
+  const candidateContainer = (color) => {
     return {
       flex: 0.4,
       flexDirection: "row",
       width: "90%",
       backgroundColor: "#eee",
-      borderColor: number === 1 ? firstColor : secondColor,
+      borderColor: color,
       borderWidth: 5
     };
   };
@@ -121,7 +121,7 @@ function WorldCupPlay({ navigation }) {
       <Text>{stage}</Text>
       <TouchableOpacity
         onPress={() => select(now[0], 1)}
-        style={candidateContainer(1)}
+        style={candidateContainer(firstColor)}
       >
         <Image
           style={styles.photo}
@@ -132,7 +132,7 @@ function WorldCupPlay({ navigation }) {
       <Text>VS</Text>
       <TouchableOpacity
         onPress={() => select(now[1], 2)}
-        style={candidateContainer(2)}
+        style={candidateContainer(secondColor)}
       >
         <Image
           style={styles.photo}

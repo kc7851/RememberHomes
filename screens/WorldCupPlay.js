@@ -34,6 +34,13 @@ function WorldCupPlay({ navigation }) {
   };
 
   const [state, setState] = useState(initialState);
+  const survive = state.survive;
+  const victory = state.victory;
+  const now = state.now;
+  const round = state.round;
+  const selected = state.selected;
+  const firstColor = state.firstColor;
+  const secondColor = state.secondColor;
 
   const select = (house, selectedNumber) => {
     setState({
@@ -45,23 +52,20 @@ function WorldCupPlay({ navigation }) {
   };
 
   const next = () => {
-    if (!state.selected) {
+    if (!selected) {
       alert("하나 이상을 선택해야 합니다.");
       return;
     }
 
-    if (state.survive.length === 2) {
-      goToFinish(state.selected);
+    if (survive.length === 2) {
+      goToFinish(selected);
       return;
     }
 
-    Math.floor(state.survive.length / 2) == state.round ? nextStage() : nextRound();
+    Math.floor(survive.length / 2) == round ? nextStage() : nextRound();
   };
 
   const nextStage = () => {
-    const survive = state.survive;
-    const victory = state.victory;
-    const selected = state.selected;
     const newSurvive =
       survive.length % 2 === 0
         ? [...victory, selected]
@@ -78,10 +82,6 @@ function WorldCupPlay({ navigation }) {
   };
 
   const nextRound = () => {
-    const survive = state.survive;
-    const victory = state.victory;
-    const selected = state.selected;
-    const round = state.round;
     setState({
       ...state,
       victory: [...victory, selected],
@@ -100,9 +100,9 @@ function WorldCupPlay({ navigation }) {
   };
 
   const stage =
-    state.survive.length === 2
+    survive.length === 2
       ? "결승전"
-      : state.survive.length + "강 - " + state.round + "라운드";
+      : survive.length + "강 - " + round + "라운드";
 
   const candidateContainer = (number) => {
     return {
@@ -110,7 +110,7 @@ function WorldCupPlay({ navigation }) {
       flexDirection: "row",
       width: "90%",
       backgroundColor: "#eee",
-      borderColor: number === 1 ? state.firstColor : state.secondColor,
+      borderColor: number === 1 ? firstColor : secondColor,
       borderWidth: 5
     };
   };
@@ -120,7 +120,7 @@ function WorldCupPlay({ navigation }) {
       <Text>WorldCupPlay</Text>
       <Text>{stage}</Text>
       <TouchableOpacity
-        onPress={() => select(state.now[0], 1)}
+        onPress={() => select(now[0], 1)}
         style={candidateContainer(1)}
       >
         <Image
@@ -131,7 +131,7 @@ function WorldCupPlay({ navigation }) {
       </TouchableOpacity>
       <Text>VS</Text>
       <TouchableOpacity
-        onPress={() => select(state.now[1], 2)}
+        onPress={() => select(now[1], 2)}
         style={candidateContainer(2)}
       >
         <Image

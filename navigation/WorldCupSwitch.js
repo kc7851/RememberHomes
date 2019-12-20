@@ -7,7 +7,7 @@ import WorldCupStart from "../screens/WorldCupStart";
 import WorldCupPlay from "../screens/WorldCupPlay";
 import WorldCupFinish from "../screens/WorldCupFinish";
 
-const WorldCupStack = createSwitchNavigator(
+const WorldCupSwitch = createSwitchNavigator(
   {
     WorldCupStart: {
       screen: WorldCupStart
@@ -24,7 +24,7 @@ const WorldCupStack = createSwitchNavigator(
   }
 );
 
-WorldCupStack.navigationOptions = {
+WorldCupSwitch.navigationOptions = {
   tabBarLabel: "집 월드컵",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -34,4 +34,4 @@ WorldCupStack.navigationOptions = {
   )
 };
 
-export default WorldCupStack;
+export default WorldCupSwitch;

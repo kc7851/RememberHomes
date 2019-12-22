@@ -18,7 +18,7 @@ function Photos({ houseId }) {
       <ScrollView horizontal={true}>
         {photos &&
           photos.map((fileName) => {
-            const url = { url: `${PHOTOS_DIR}/${fileName}` };
+            const url = fileName.length > 20 ? { url: `${fileName}` } : { url: `${PHOTOS_DIR}/${fileName}` };
             return (
               <View key={fileName} style={styles.pictureWrapper}>
                 <Image style={styles.picture} source={url} />

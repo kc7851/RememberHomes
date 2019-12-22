@@ -27,10 +27,11 @@ function Photos() {
       </View>
       {photos &&
         photos.map(fileName => {
+          const url = fileName.length > 20 ? `${fileName}` : `${PHOTOS_DIR}/${fileName}`;
           return (
             <Photo
               key={fileName}
-              uri={`${PHOTOS_DIR}/${fileName}`}
+              uri={url}
               fileName={fileName}
               onDelete={onDeletePhoto}
             />

@@ -1,3 +1,5 @@
+import { Asset } from 'expo-asset';
+
 const house1 = {
   requires: {
     location: "강남구 역삼동",
@@ -86,6 +88,7 @@ const house1 = {
     소음: false
   },
   photos: [
+    Asset.fromModule(require('../assets/house/house1.jpg')).uri
   ],
   id: 1,
   key: "1"

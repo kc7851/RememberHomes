@@ -40,6 +40,9 @@ function HouseList({ navigation }) {
   useEffect(() => {
     dispatch(fetchHouses());
   }, []);
+  // useEffect(() => {
+  //   dispatch(saveHouses(houses));
+  // }, [houses]);
   useEffect(() => {
     const savedList = houses.reduce((acc, cur) => acc.concat(cur.photos), []);
     cleaner(savedList);

@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
-import * as FileSystem from "expo-file-system";
-const PHOTOS_DIR = FileSystem.documentDirectory + "photos";
+import { PHOTOS_DIR } from "../../utils/fileSystem";
 
 function Photos({ houseId }) {
   const house = useSelector(state => state.houses).find(
@@ -18,18 +17,11 @@ function Photos({ houseId }) {
       </View>
       <ScrollView horizontal={true}>
         {photos &&
-          photos.map((fileName, index) => {
+          photos.map((fileName) => {
             const url = { url: `${PHOTOS_DIR}/${fileName}` };
             return (
               <View key={fileName} style={styles.pictureWrapper}>
                 <Image style={styles.picture} source={url} />
-                {/* <Text>{index + 1}</Text> */}
-                {/* <Photo
-                key={fileName}
-                uri=
-                fileName={fileName}
-                onDelete={undefined}
-              /> */}
               </View>
             );
           })}

@@ -18,6 +18,7 @@ import {
   saveHouses
 } from "../redux/actions";
 import { goTo } from "../utils/navi";
+import { cleaner } from "../utils/fileSystem";
 
 function HouseList({ navigation }) {
   const houses = useSelector(state => state.houses);
@@ -40,9 +41,9 @@ function HouseList({ navigation }) {
     dispatch(fetchHouses());
   }, []);
   useEffect(() => {
-    dispatch(saveHouses(houses));
+    const savedList = houses.reduce((acc, cur) => acc.concat(cur.photos), []);
+    cleaner(savedList);
   }, [houses]);
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -58,7 +59,8 @@ function HouseList({ navigation }) {
               >
                 <View style={styles.listItemCont}>
                   <Text style={styles.listItem}>
-                    위치:{item.requires.location} / 층수: {item.requires.floor}층
+                    위치:{item.requires.location} / 층수: {item.requires.floor}
+                    층
                   </Text>
                 </View>
                 <View style={styles.listItemCont}>

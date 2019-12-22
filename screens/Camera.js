@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setInputs } from "../redux/actions";
 
-import * as FileSystem from "expo-file-system";
 import * as Permissions from "expo-permissions";
 import { Camera } from "expo-camera";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
+
+import { mkdir, move } from "../utils/fileSystem";
 
 function CustomCamera() {
   const dispatch = useDispatch();
@@ -21,12 +22,8 @@ function CustomCamera() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
 
     setPermission(status === "granted");
-    // await FileSystem.deleteAsync(FileSystem.documentDirectory + 'photos');
-    await FileSystem.makeDirectoryAsync(
-      FileSystem.documentDirectory + "photos"
-    ).catch(e => {
-      console.log(e, "Directory exists");
-    });
+
+    mkdir("photos");
   };
 
   const takePicture = () => {
@@ -38,16 +35,13 @@ function CustomCamera() {
   const onPictureSaved = async photo => {
     const fileName = `${Date.now()}`;
 
-    await FileSystem.moveAsync({
-      from: photo.uri,
-      to: `${FileSystem.documentDirectory}photos/${fileName}.jpg`
-    });
+    move(photo.uri, `${fileName}.jpg`);
+
     const newInputs = {
       ...inputs,
       photos: [...inputs.photos, `${fileName}.jpg`]
     };
     dispatch(setInputs(newInputs));
-    console.log("save photo");
   };
 
   useEffect(() => {

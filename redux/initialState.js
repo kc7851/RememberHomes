@@ -1,4 +1,4 @@
-import { Asset } from 'expo-asset';
+import { Asset } from "expo-asset";
 
 const house1 = {
   requires: {
@@ -88,7 +88,10 @@ const house1 = {
     소음: false
   },
   photos: [
-    Asset.fromModule(require('../assets/house/house1.jpg')).uri
+    Asset.fromModule(require("../assets/houses/house1_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house1_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house1_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house1_4.jpg")).uri
   ],
   id: 1,
   key: "1"
@@ -180,7 +183,12 @@ const house2 = {
     장판: false,
     소음: false
   },
-  photos: [],
+  photos: [
+    Asset.fromModule(require("../assets/houses/house2_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house2_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house2_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house2_4.jpg")).uri
+  ],
   id: 2,
   key: "2"
 };
@@ -272,7 +280,13 @@ const house3 = {
     장판: false,
     소음: false
   },
-  photos: [],
+  photos: [
+    Asset.fromModule(require("../assets/houses/house3_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house3_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house3_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house3_4.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house3_5.jpg")).uri
+  ],
   id: 3,
   key: "3"
 };
@@ -364,7 +378,12 @@ const house4 = {
     장판: false,
     소음: false
   },
-  photos: [],
+  photos: [
+    Asset.fromModule(require("../assets/houses/house4_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house4_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house4_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house4_4.jpg")).uri
+  ],
   id: 4,
   key: "4"
 };
@@ -456,7 +475,12 @@ const house5 = {
     장판: false,
     소음: false
   },
-  photos: [],
+  photos: [
+    Asset.fromModule(require("../assets/houses/house5_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house5_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house5_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house5_4.jpg")).uri
+  ],
   id: 5,
   key: "5"
 };
@@ -548,7 +572,12 @@ const house6 = {
     장판: false,
     소음: false
   },
-  photos: [],
+  photos: [
+    Asset.fromModule(require("../assets/houses/house6_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house6_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house6_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house6_4.jpg")).uri
+  ],
   id: 6,
   key: "6"
 };
@@ -640,7 +669,12 @@ const house7 = {
     장판: false,
     소음: false
   },
-  photos: [],
+  photos: [
+    Asset.fromModule(require("../assets/houses/house7_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house7_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house7_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house7_4.jpg")).uri
+  ],
   id: 7,
   key: "7"
 };
@@ -732,7 +766,12 @@ const house8 = {
     장판: false,
     소음: false
   },
-  photos: [],
+  photos: [
+    Asset.fromModule(require("../assets/houses/house8_1.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house8_2.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house8_3.jpg")).uri,
+    Asset.fromModule(require("../assets/houses/house8_4.jpg")).uri
+  ],
   id: 8,
   key: "8"
 };

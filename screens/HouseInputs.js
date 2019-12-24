@@ -63,11 +63,6 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   scrollView: { flex: 0.9 },
-  checkBoxContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%"
-  },
   componentsContainer: {
     paddingHorizontal: 25
   },

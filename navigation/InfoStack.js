@@ -3,24 +3,14 @@ import { Platform } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 
 import TabBarIcon from "../components/TabBarIcon";
-import HelpList from "../screens/HelpList";
-import HelpDetail from "../screens/HelpDetail";
+import InfoList from "../screens/InfoList";
 
-const HelpStack = createStackNavigator(
+const InfoStack = createStackNavigator(
   {
-    HelpList: {
-      screen: HelpList,
+    InfoList: {
+      screen: InfoList,
       navigationOptions: () => ({
         title: "필수 정보 리스트",
-        headerTitleStyle: {
-          fontSize: 24
-        }
-      })
-    },
-    HelpDetail: {
-      screen: HelpDetail,
-      navigationOptions: () => ({
-        title: "상세 정보",
         headerTitleStyle: {
           fontSize: 24
         }
@@ -34,7 +24,7 @@ const HelpStack = createStackNavigator(
   }
 );
 
-HelpStack.navigationOptions = {
+InfoStack.navigationOptions = {
   tabBarLabel: "필수정보",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -48,4 +38,4 @@ HelpStack.navigationOptions = {
   )
 };
 
-export default HelpStack;
+export default InfoStack;

@@ -6,8 +6,8 @@ function Checklist({ title, checklist }) {
 
   return (
     <View style={{ marginTop: 20 }}>
-      <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 26 }}>{title}</Text>
+      <View style={{ paddingVertical: 5 }}>
+        <Text style={{ fontSize: 24 }}>{title}</Text>
       </View>
       <CheckBox
         title="융자가 없는가?"

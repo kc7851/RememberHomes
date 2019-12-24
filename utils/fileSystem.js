@@ -25,7 +25,7 @@ export const move = async (from, to) => {
 export const cleaner = async savedList => {
   const fileList = await FileSystem.readDirectoryAsync(PHOTOS_DIR);
   fileList.filter(file => savedList.indexOf(file) < 0)
-    .forEach(file => remove(file));
+    .forEach(remove);
 };
 
 const remove = async name => {

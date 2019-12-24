@@ -69,21 +69,15 @@ function HouseList({ navigation }) {
                       goTo(navigation, "HouseDetail", { houseId: item.id })
                     }
                   >
-                    <View>
-                      <View>
-                        <Text style={styles.listItem}>
-                          위치:{item.requires.location} / 층수:{" "}
-                          {item.requires.floor}층
-                        </Text>
-                      </View>
-                      <View>
-                        <Text style={styles.listItem}>
-                          보증금: {item.requires.deposit} / 월세:{" "}
-                          {item.requires.monthlyFee} / 관리비:{" "}
-                          {item.requires.maintenenceFee}
-                        </Text>
-                      </View>
-                    </View>
+                    <Text style={styles.listItem}>
+                      위치:{item.requires.location} / 층수:{" "}
+                      {item.requires.floor}층
+                    </Text>
+                    <Text style={styles.listItem}>
+                      보증금: {item.requires.deposit} / 월세:{" "}
+                      {item.requires.monthlyFee} / 관리비:{" "}
+                      {item.requires.maintenenceFee}
+                    </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={{

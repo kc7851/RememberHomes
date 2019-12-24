@@ -14,10 +14,9 @@ import { goTo } from "../utils/navi";
 
 function HouseInputs({ navigation }) {
   const dispatch = useDispatch();
-  const isUpdate = navigation.state.params.isUpdate;
 
   const onAddHouse = () => {
-    if (isUpdate) {
+    if (navigation.state.params.isUpdate) {
       dispatch(updateHouse(navigation.state.params.houseId));
     } else {
       dispatch(addHouse());
@@ -49,7 +48,11 @@ function HouseInputs({ navigation }) {
         </View>
       </ScrollView>
       <View style={styles.bottom}>
-        <Button onPress={() => goTo(navigation, "HouseCamera")} title="사진찍기" color="#841584" />
+        <Button
+          onPress={() => goTo(navigation, "HouseCamera")}
+          title="사진찍기"
+          color="#841584"
+        />
         <Button onPress={onAddHouse} title="저장하기" color="#841584" />
       </View>
     </View>
@@ -63,11 +66,6 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   scrollView: { flex: 0.9 },
-  checkBoxContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%"
-  },
   componentsContainer: {
     paddingHorizontal: 25
   },

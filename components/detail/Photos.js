@@ -8,13 +8,9 @@ function Photos({ houseId }) {
     house => house.id == houseId
   );
   const photos = house.photos;
-  const text = photos.length > 0 ? "사진" : "";
 
   return (
     <View style={{ marginTop: 20 }}>
-      <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 26 }}>{text}</Text>
-      </View>
       <ScrollView horizontal={true}>
         {photos &&
           photos.map((fileName) => {

@@ -14,14 +14,16 @@ function HouseDetatil({ navigation }) {
   const house = useSelector(state => state.houses).find(
     house => house.id == houseId
   );
-  const requires = house.requires;
-  const includes = house.includes;
-  const options = house.options;
-  const convenience = house.convenience;
-  const education = house.education;
-  const lifestyle = house.lifestyle;
-  const checklist = house.checklist;
-  const photos = house.photos;
+  const {
+    requires,
+    includes,
+    options,
+    convenience,
+    education,
+    lifestyle,
+    checklist,
+    photos
+  } = house;
 
   const onUpdate = () => {
     dispatch(setInputs(house));
@@ -29,7 +31,7 @@ function HouseDetatil({ navigation }) {
       isUpdate: true,
       houseId: houseId,
       title: "집 정보 수정"
-    }
+    };
     goTo(navigation, "HouseInputs", options);
   };
 
@@ -66,10 +68,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   scrollView: { flex: 0.9 },
-  checkBoxContainer: {
-    flexDirection: "row",
-    alignItems: "center"
-  },
   componentsContainer: {
     paddingHorizontal: 25
   }

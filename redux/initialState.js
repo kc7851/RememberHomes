@@ -866,5 +866,75 @@ export const initialState = {
       소음: false
     },
     photos: []
+  },
+  infomations: {
+    공통: [
+      {
+        key: "1",
+        title: "APT2you",
+        url: "https://m.apt2you.com/apt/saleHouse/selectHouseName.do"
+      },
+      {
+        key: "2",
+        title: "SH - 주택분양",
+        url: "https://www.i-sh.co.kr/app/lay2/program/S48T1581C1617/www/brd/m_244/list.do?multi_itm_seq=1"
+      },
+      {
+        key: "3",
+        title: "SH - 주택임대",
+        url: "https://www.i-sh.co.kr/app/lay2/program/S48T1581C563/www/brd/m_247/list.do?multi_itm_seq=2"
+      }
+    ],
+    매매: [
+      {
+        key: "1",
+        title: "google",
+        url: "https://google.com"
+      },
+      {
+        key: "2",
+        title: "google",
+        url: "https://google.com"
+      },
+      {
+        key: "3",
+        title: "google",
+        url: "https://google.com"
+      }
+    ],
+    전세: [
+      {
+        key: "1",
+        title: "google",
+        url: "https://google.com"
+      },
+      {
+        key: "2",
+        title: "google",
+        url: "https://google.com"
+      },
+      {
+        key: "3",
+        title: "google",
+        url: "https://google.com"
+      }
+    ],
+    월세: [
+      {
+        key: "1",
+        title: "google",
+        url: "https://google.com"
+      },
+      {
+        key: "2",
+        title: "google",
+        url: "https://google.com"
+      },
+      {
+        key: "3",
+        title: "google",
+        url: "https://google.com"
+      }
+    ]
   }
 };

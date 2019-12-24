@@ -1,6 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { StyleSheet, View, Button, StatusBar, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Button,
+  StatusBar,
+  ScrollView,
+  Text
+} from "react-native";
 import Photos from "../components/detail/Photos";
 import Requires from "../components/detail/Requires";
 import Checked from "../components/detail/Checked";
@@ -38,6 +45,9 @@ function WorldCupFinish({ navigation }) {
       <ScrollView style={styles.scrollView}>
         <StatusBar barStyle="dark-content" />
         <View style={styles.componentsContainer}>
+          <View style={{ marginTop:40, alignItems: "center" }}>
+            <Text style={{ fontSize: 34 }}>우승</Text>
+          </View>
           {photos && <Photos houseId={victory.id} />}
 
           <Requires requires={requires} />

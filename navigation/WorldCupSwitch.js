@@ -25,7 +25,7 @@ const WorldCupSwitch = createSwitchNavigator(
 );
 
 WorldCupSwitch.navigationOptions = {
-  tabBarLabel: "집 월드컵",
+  tabBarLabel: "하우스 월드컵",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

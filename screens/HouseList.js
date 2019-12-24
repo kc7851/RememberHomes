@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { initialState } from '../redux/initialState';
+import { initialState } from "../redux/initialState";
 import {
   StyleSheet,
   Text,
@@ -11,31 +11,43 @@ import {
   Button,
   StatusBar
 } from "react-native";
-import { removeHouse, fetchHouses, setInputs, saveHouses } from "../redux/actions";
+import {
+  removeHouse,
+  fetchHouses,
+  setInputs,
+  saveHouses
+} from "../redux/actions";
+import { goTo } from "../utils/navi";
+import { cleaner } from "../utils/fileSystem";
 
 function HouseList({ navigation }) {
   const houses = useSelector(state => state.houses);
   const dispatch = useDispatch();
-  const onGoToDetail = id => {
-    navigation.navigate("HouseDetail", { houseId: id });
-  };
+
   const onCreate = () => {
     dispatch(setInputs(initialState.inputs));
-    navigation.navigate("HouseInputs", {
+    const options = {
       isUpdate: false,
       title: "새 집 입력"
-    });
+    };
+    goTo(navigation, "HouseInputs", options);
   };
+
   const onDeleteItem = id => {
     dispatch(removeHouse(id));
   };
+
   useEffect(() => {
     dispatch(fetchHouses());
   }, []);
+  //TODO: 데모데이 이후에 다시 주석 풀어야 함.
+  // useEffect(() => {
+  //   dispatch(saveHouses(houses));
+  // }, [houses]);
   useEffect(() => {
-    dispatch(saveHouses(houses));
+    const savedList = houses.reduce((acc, cur) => acc.concat(cur.photos), []);
+    cleaner(savedList);
   }, [houses]);
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -44,15 +56,21 @@ function HouseList({ navigation }) {
           data={houses}
           renderItem={({ item }) => (
             <View>
-              <TouchableOpacity onPress={() => onGoToDetail(item.id)}>
+              <TouchableOpacity
+                onPress={() =>
+                  goTo(navigation, "HouseDetail", { houseId: item.id })
+                }
+              >
                 <View style={styles.listItemCont}>
                   <Text style={styles.listItem}>
-                    위치:{item.requires.location} / 층수: {item.requires.floor}층
+                    위치:{item.requires.location} / 층수: {item.requires.floor}
+                    층
                   </Text>
                 </View>
                 <View style={styles.listItemCont}>
                   <Text style={styles.listItem}>
-                    보증금: {item.requires.deposit} / 월세: {item.requires.monthlyFee} / 관리비:{" "}
+                    보증금: {item.requires.deposit} / 월세:{" "}
+                    {item.requires.monthlyFee} / 관리비:{" "}
                     {item.requires.maintenenceFee}
                   </Text>
                   <Button title="X" onPress={() => onDeleteItem(item.id)} />

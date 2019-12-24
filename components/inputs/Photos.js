@@ -2,9 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { View, Text } from "react-native";
 import Photo from "../camera/Photo";
-import * as FileSystem from "expo-file-system";
 import { setInputs } from "../../redux/actions";
-const PHOTOS_DIR = FileSystem.documentDirectory + "photos";
+import { PHOTOS_DIR } from "../../utils/fileSystem";
 
 function Photos() {
   const dispatch = useDispatch();
@@ -28,10 +27,11 @@ function Photos() {
       </View>
       {photos &&
         photos.map(fileName => {
+          const url = fileName.length > 20 ? `${fileName}` : `${PHOTOS_DIR}/${fileName}`;
           return (
             <Photo
               key={fileName}
-              uri={`${PHOTOS_DIR}/${fileName}`}
+              uri={url}
               fileName={fileName}
               onDelete={onDeletePhoto}
             />

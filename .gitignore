@@ -11,5 +11,7 @@ web-build/
 web-report/
 *.log
 
+coverage/
+
 # macOS
 .DS_Store

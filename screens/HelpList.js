@@ -1,17 +1,13 @@
 import React from "react";
 import { StyleSheet, View, Text, Button, StatusBar } from "react-native";
+import { goTo } from "../utils/navi";
 
 function HelpList({ navigation }) {
-
-  const goToDetail = () => {
-    navigation.navigate("HelpDetail");
-  };
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <Text>List</Text>
-      <Button onPress={goToDetail} title="상세보기" color="#841584" />
+      <Button onPress={() => goTo(navigation, "HelpDetail")} title="상세보기" color="#841584" />
     </View>
   );
 }

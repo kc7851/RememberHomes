@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "expo": "^35.0.0",
+    "expo-asset": "~7.0.0",
     "expo-camera": "~7.0.0",
     "expo-file-system": "~7.0.0",
     "expo-media-library": "~7.0.0",

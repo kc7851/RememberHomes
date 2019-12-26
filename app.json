@@ -2,6 +2,8 @@
   "expo": {
     "name": "RememberHomes",
     "slug": "RememberHomes",
+    "description": "집 보러 다닐 때 사용하는 메모앱 입니다.",
+    "githubUrl": "https://github.com/kc7851/RememberHomes",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [

@@ -15,6 +15,7 @@ function Requires({ requires }) {
       <Require title="중개인 연락처" description={requires.contact} unit="" />
       <Require title="방향" description={requires.direction} unit="" />
       <Require title="층수" description={requires.floor} unit=" 층" />
+      <Require title="면적" description={requires.area} unit=" 평" />
       <Require title="집유형" description={requires.housetype} unit="" />
       <Require title="집구조" description={requires.housestructure} unit="" />
       <Require title="버스정류장 거리" description={requires.bus} unit=" 분" />

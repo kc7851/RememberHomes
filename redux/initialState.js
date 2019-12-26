@@ -877,61 +877,73 @@ export const initialState = {
       {
         key: "2",
         title: "SH - 주택분양",
-        url: "https://www.i-sh.co.kr/app/lay2/program/S48T1581C1617/www/brd/m_244/list.do?multi_itm_seq=1"
+        url:
+          "https://www.i-sh.co.kr/app/lay2/program/S48T1581C1617/www/brd/m_244/list.do?multi_itm_seq=1"
       },
       {
         key: "3",
         title: "SH - 주택임대",
-        url: "https://www.i-sh.co.kr/app/lay2/program/S48T1581C563/www/brd/m_247/list.do?multi_itm_seq=2"
+        url:
+          "https://www.i-sh.co.kr/app/lay2/program/S48T1581C563/www/brd/m_247/list.do?multi_itm_seq=2"
+      },
+      {
+        key: "4",
+        title: "등기부등본 보는 방법",
+        url:
+          "https://m.blog.naver.com/PostView.nhn?blogId=umkr61&logNo=220799926472&proxyReferer=&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F"
+      },
+      {
+        key: "5",
+        title: "중개수수료 계산기",
+        url: "http://portal.r114.co.kr/std/order/etc/10.asp?only=321&m_=4&g_=2"
+      },
+      {
+        key: "6",
+        title: "대출이자 계산기",
+        url:
+          "https://m.search.naver.com/search.naver?where=m&sm=mtb_etc&query=%EB%8C%80%EC%B6%9C%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0"
+      },
+      {
+        key: "7",
+        title: "2019 신혼부부를 위한 주거정책",
+        url: "https://1boon.kakao.com/cidermics/1739"
       }
     ],
     매매: [
       {
         key: "1",
-        title: "google",
-        url: "https://google.com"
+        title: "LTV, DTI란?",
+        url: "https://brunch.co.kr/@peoplefund/113"
       },
       {
         key: "2",
-        title: "google",
-        url: "https://google.com"
-      },
-      {
-        key: "3",
-        title: "google",
+        title: "주택담보대출",
         url: "https://google.com"
       }
     ],
     전세: [
       {
         key: "1",
-        title: "google",
-        url: "https://google.com"
+        title: "신혼부부 전세대출",
+        url:
+          "https://m.blog.naver.com/PostView.nhn?blogId=mltmkr&logNo=221625827450&categoryNo=49&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F"
       },
       {
         key: "2",
-        title: "google",
-        url: "https://google.com"
+        title: "전세자금대출시 체크포인트",
+        url:
+          "https://banksalad.com/contents/%EC%A0%84%EC%84%B8%EC%9E%90%EA%B8%88%EB%8C%80%EC%B6%9C-%EA%B0%80%EC%9E%85-%EC%8B%9C-%EC%B2%B4%ED%81%AC%ED%8F%AC%EC%9D%B8%ED%8A%B8-3d2d"
       },
       {
         key: "3",
-        title: "google",
-        url: "https://google.com"
+        title: "묵시적갱신",
+        url:
+          "https://1boon.kakao.com/ktestate/021302"
       }
     ],
     월세: [
       {
         key: "1",
-        title: "google",
-        url: "https://google.com"
-      },
-      {
-        key: "2",
-        title: "google",
-        url: "https://google.com"
-      },
-      {
-        key: "3",
         title: "google",
         url: "https://google.com"
       }

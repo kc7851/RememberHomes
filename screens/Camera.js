@@ -9,6 +9,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { mkdir, move } from "../utils/fileSystem";
+import { PHOTOS_DIR } from "../utils/fileSystem";
 
 function CustomCamera() {
   const dispatch = useDispatch();
@@ -35,11 +36,13 @@ function CustomCamera() {
   const onPictureSaved = async photo => {
     const fileName = `${Date.now()}`;
 
-    move(photo.uri, `${fileName}.jpg`);
+    const saved = `${PHOTOS_DIR}${fileName}.jpg`
+
+    move(photo.uri, saved);
 
     const newInputs = {
       ...inputs,
-      photos: [...inputs.photos, `${fileName}.jpg`]
+      photos: [...inputs.photos, saved]
     };
     dispatch(setInputs(newInputs));
   };

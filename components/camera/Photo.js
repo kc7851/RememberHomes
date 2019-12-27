@@ -6,12 +6,12 @@ import {
   Button
 } from "react-native";
 
-function Photo({ uri, onDelete, fileName }) {
+function Photo({ uri, onDelete }) {
   return (
     <View style={styles.pictureWrapper}>
       <Image style={styles.picture} source={{ uri }} />
       <View style={styles.pictureDelete}>
-        <Button title="X" onPress={() => onDelete(fileName)} />
+        <Button title="X" onPress={() => onDelete(uri)} />
       </View>
     </View>
   );

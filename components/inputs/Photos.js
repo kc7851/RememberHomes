@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { View, Text } from "react-native";
 import Photo from "../camera/Photo";
 import { setInputs } from "../../redux/actions";
-import { PHOTOS_DIR } from "../../utils/fileSystem";
 
 function Photos() {
   const dispatch = useDispatch();
@@ -26,13 +25,11 @@ function Photos() {
         <Text style={{ fontSize: 26 }}>{text}</Text>
       </View>
       {photos &&
-        photos.map(fileName => {
-          const url = fileName.length > 20 ? `${fileName}` : `${PHOTOS_DIR}/${fileName}`;
+        photos.map(url => {
           return (
             <Photo
-              key={fileName}
+              key={url}
               uri={url}
-              fileName={fileName}
               onDelete={onDeletePhoto}
             />
           );

@@ -40,10 +40,9 @@ function HouseList({ navigation }) {
   useEffect(() => {
     dispatch(fetchHouses());
   }, []);
-  //TODO: 데모데이 이후에 다시 주석 풀어야 함.
-  // useEffect(() => {
-  //   dispatch(saveHouses(houses));
-  // }, [houses]);
+  useEffect(() => {
+    dispatch(saveHouses(houses));
+  }, [houses]);
   useEffect(() => {
     const savedList = houses.reduce((acc, cur) => acc.concat(cur.photos), []);
     cleaner(savedList);

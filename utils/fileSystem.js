@@ -16,15 +16,12 @@ export const mkdir = async name => {
 };
 
 export const move = async (from, to) => {
-  await FileSystem.moveAsync({
-    from,
-    to: `${PHOTOS_DIR}${to}`
-  });
+  await FileSystem.moveAsync({ from, to });
 };
 
 export const cleaner = async savedList => {
   const fileList = await FileSystem.readDirectoryAsync(PHOTOS_DIR);
-  fileList.filter(file => savedList.indexOf(file) < 0)
+  fileList.filter(file => savedList.indexOf(PHOTOS_DIR + file) < 0)
     .forEach(remove);
 };
 

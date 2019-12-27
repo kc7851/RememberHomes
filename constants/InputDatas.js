@@ -25,10 +25,12 @@ export const floorArray = [
     { key: "18평", label: "18평", value: "18" },
     { key: "21평", label: "21평", value: "21" },
     { key: "25평", label: "25평", value: "25" },
+    { key: "27평", label: "27평", value: "27" },
     { key: "28평", label: "28평", value: "28" },
     { key: "33평", label: "33평", value: "33" },
     { key: "36평", label: "36평", value: "36" },
     { key: "40평", label: "40평", value: "40" },
+    { key: "45평", label: "45평", value: "45" },
   ];
   
   export const directionArray = [
@@ -48,6 +50,7 @@ export const floorArray = [
     { key: "아파트", label: "아파트", value: "아파트" },
     { key: "다가구주택", label: "다가구주택", value: "다가구주택" },
     { key: "다세대주택", label: "다세대주택", value: "다세대주택" },
+    { key: "단독주택", label: "단독주택", value: "단독주택" },
   ];
 
   export const housestructureArray = [

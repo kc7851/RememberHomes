@@ -1,13 +1,13 @@
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import HouseStack from "./HouseStack";
-import HelpStack from "./HelpStack";
+import InfoStack from "./InfoStack";
 import WorldCupSwitch from "./WorldCupSwitch";
 
 const TabNavigator = createBottomTabNavigator({
   HouseStack,
   WorldCupSwitch,
-  HelpStack
+  InfoStack
 });
 
 export default TabNavigator;

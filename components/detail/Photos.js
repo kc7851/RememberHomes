@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
-import { PHOTOS_DIR } from "../../utils/fileSystem";
 
 function Photos({ houseId }) {
   const house = useSelector(state => state.houses).find(
@@ -13,11 +12,10 @@ function Photos({ houseId }) {
     <View style={{ marginTop: 20 }}>
       <ScrollView horizontal={true}>
         {photos &&
-          photos.map((fileName) => {
-            const url = fileName.length > 20 ? { url: `${fileName}` } : { url: `${PHOTOS_DIR}/${fileName}` };
+          photos.map((url) => {
             return (
-              <View key={fileName} style={styles.pictureWrapper}>
-                <Image style={styles.picture} source={url} />
+              <View key={url} style={styles.pictureWrapper}>
+                <Image style={styles.picture} source={{url}} />
               </View>
             );
           })}

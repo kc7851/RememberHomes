@@ -12,11 +12,12 @@ import { goTo } from "../utils/navi";
 
 function WorldCupPlay({ navigation }) {
   const initList = navigation.state.params.houses;
-
+  const randomOrderList = [...initList].sort(() => Math.random() - Math.random())
+  
   const initialState = {
-    survive: initList,
+    survive: randomOrderList,
     victory: [],
-    now: [initList[0], initList[1]],
+    now: [randomOrderList[0], randomOrderList[1]],
     round: 1,
     selected: null,
     firstColor: "white",
@@ -45,7 +46,7 @@ function WorldCupPlay({ navigation }) {
 
   const next = () => {
     if (!selected) {
-      alert("하나 이상을 선택해야 합니다.");
+      alert("하나를 선택해야 합니다.");
       return;
     }
 

@@ -9,9 +9,7 @@ import {
 import * as WebBrowser from "expo-web-browser";
 
 function InfoList({ title, array }) {
-  const open = async url => {
-    WebBrowser.openBrowserAsync(url);
-  };
+  const open = url => WebBrowser.openBrowserAsync(url);
 
   return (
     <View style={styles.componentsContainer}>
